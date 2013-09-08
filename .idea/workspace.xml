@@ -27,6 +27,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CompilerWorkspaceConfiguration">
+    <option name="USE_COMPILE_SERVER" value="false" />
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
     <option name="PARALLEL_COMPILATION" value="true" />
   </component>
@@ -95,29 +96,25 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="13" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
+            <state line="11" column="13" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1290">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogInActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="LogInActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LogInActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="37" selection-start="4301" selection-end="4301" vertical-scroll-proportion="0.0" vertical-offset="2148" max-vertical-offset="4500">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2163#2564#0" expanded="true" />
-                <element signature="e#2553#2554#0" expanded="true" />
-              </folding>
+            <state line="126" column="23" selection-start="4706" selection-end="4706" vertical-scroll-proportion="0.5235732" vertical-offset="2459" max-vertical-offset="3270">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PFMActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PFMActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/PFMActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="68" selection-start="365" selection-end="365" vertical-scroll-proportion="0.3740458" vertical-offset="352" max-vertical-offset="1170">
+            <state line="22" column="50" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0" vertical-offset="469" max-vertical-offset="1170">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#565#575#0" expanded="true" />
@@ -129,10 +126,8 @@
       <file leaf-file-name="LoggedInActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LoggedInActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="20" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0" vertical-offset="639" max-vertical-offset="1380">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="17" column="20" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0" vertical-offset="639" max-vertical-offset="1230">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -140,7 +135,7 @@
       <file leaf-file-name="NewDiningActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/NewDiningActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+            <state line="11" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="780">
               <folding />
             </state>
           </provider>
@@ -152,17 +147,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="17" selection-start="277" selection-end="277" vertical-scroll-proportion="-7.2" vertical-offset="0" max-vertical-offset="3450">
-              <folding>
-                <element signature="e#1419#1449#0" expanded="true" />
-                <element signature="e#2036#2066#0" expanded="true" />
-                <element signature="e#2255#2291#0" expanded="true" />
-                <element signature="e#2827#2857#0" expanded="true" />
-                <element signature="e#3068#3102#0" expanded="true" />
-                <element signature="e#3840#3870#0" expanded="true" />
-                <element signature="e#4081#4115#0" expanded="true" />
-                <element signature="e#4551#4578#0" expanded="true" />
-              </folding>
+            <state line="6" column="17" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="3450">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -171,9 +157,7 @@
         <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/UnloggedInActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="13" column="13" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1170">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -181,15 +165,8 @@
       <file leaf-file-name="logged_in_menu.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/menu/logged_in_menu.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="50" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200">
-              <folding>
-                <element signature="e#268#290#0" expanded="true" />
-                <element signature="e#461#490#0" expanded="true" />
-                <element signature="e#651#670#0" expanded="true" />
-                <element signature="e#834#856#0" expanded="true" />
-                <element signature="e#1020#1042#0" expanded="true" />
-                <element signature="e#1203#1222#0" expanded="true" />
-              </folding>
+            <state line="8" column="50" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1200">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -200,13 +177,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="48" selection-start="710" selection-end="710" vertical-scroll-proportion="-15.6" vertical-offset="120" max-vertical-offset="1440">
-              <folding>
-                <element signature="e#562#591#0" expanded="false" />
-                <element signature="e#784#814#0" expanded="false" />
-                <element signature="e#1180#1211#0" expanded="false" />
-                <element signature="e#1597#1620#0" expanded="false" />
-              </folding>
+            <state line="17" column="48" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1440">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -235,8 +207,8 @@
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/UnloggedInActivity.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LogInActivity.java" />
         <option value="$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/PFMActivity.java" />
+        <option value="$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LogInActivity.java" />
       </list>
     </option>
   </component>
@@ -294,6 +266,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -448,7 +421,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -467,11 +439,11 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -637,8 +609,6 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4770017" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -646,18 +616,20 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48722318" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24701874" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.51277685" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.75298125" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4701874" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
@@ -775,17 +747,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="277" selection-end="277" vertical-scroll-proportion="-7.2" vertical-offset="0" max-vertical-offset="3450">
-          <folding>
-            <element signature="e#1419#1449#0" expanded="true" />
-            <element signature="e#2036#2066#0" expanded="true" />
-            <element signature="e#2255#2291#0" expanded="true" />
-            <element signature="e#2827#2857#0" expanded="true" />
-            <element signature="e#3068#3102#0" expanded="true" />
-            <element signature="e#3840#3870#0" expanded="true" />
-            <element signature="e#4081#4115#0" expanded="true" />
-            <element signature="e#4551#4578#0" expanded="true" />
-          </folding>
+        <state line="6" column="17" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="3450">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -794,27 +757,15 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="48" selection-start="710" selection-end="710" vertical-scroll-proportion="-15.6" vertical-offset="120" max-vertical-offset="1440">
-          <folding>
-            <element signature="e#562#591#0" expanded="false" />
-            <element signature="e#784#814#0" expanded="false" />
-            <element signature="e#1180#1211#0" expanded="false" />
-            <element signature="e#1597#1620#0" expanded="false" />
-          </folding>
+        <state line="17" column="48" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1440">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/menu/logged_in_menu.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="50" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200">
-          <folding>
-            <element signature="e#268#290#0" expanded="true" />
-            <element signature="e#461#490#0" expanded="true" />
-            <element signature="e#651#670#0" expanded="true" />
-            <element signature="e#834#856#0" expanded="true" />
-            <element signature="e#1020#1042#0" expanded="true" />
-            <element signature="e#1203#1222#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -828,9 +779,7 @@
     <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/UnloggedInActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="13" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1170">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -848,33 +797,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/PFMActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="50" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0" vertical-offset="469" max-vertical-offset="1170">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#565#575#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LoggedInActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="20" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1380">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LogInActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="37" selection-start="4301" selection-end="4301" vertical-scroll-proportion="0.0" vertical-offset="2148" max-vertical-offset="4500">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2163#2564#0" expanded="true" />
-            <element signature="e#2553#2554#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/PFMActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="68" selection-start="365" selection-end="365" vertical-scroll-proportion="0.3740458" vertical-offset="352" max-vertical-offset="1170">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#565#575#0" expanded="true" />
-          </folding>
+        <state line="126" column="23" selection-start="4706" selection-end="4706" vertical-scroll-proportion="0.5235732" vertical-offset="2459" max-vertical-offset="3270">
+          <folding />
         </state>
       </provider>
     </entry>

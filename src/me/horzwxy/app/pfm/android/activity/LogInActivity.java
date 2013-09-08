@@ -94,14 +94,8 @@ public class LogInActivity extends UnloggedInActivity {
         protected LoggingInResponse doInBackground(String... strings) {
             URL url = createLogInURL( strings[0] );
             try {
-                System.out.println(url.toString());
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.connect();
-
-                BufferedReader bf = new BufferedReader(
-                new InputStreamReader( connection.getInputStream() ));
-
-                System.out.println( bf.readLine() );
 
                 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder db = factory.newDocumentBuilder();
@@ -125,13 +119,12 @@ public class LogInActivity extends UnloggedInActivity {
 
         @Override
         protected void onPostExecute(LoggingInResponse response) {
-            System.out.println( response );
             if( response == LoggingInResponse.SUCCESS ) {
                 Intent intent = new Intent( LogInActivity.this, NewDiningActivity.class );
                 startActivity(intent);
             }
             else if( response == LoggingInResponse.SUCCESS_BUT_FIRST ) {
-                System.out.println( "!!" );
+                // todo
             }
             else {
                 pDialog.dismiss();
