@@ -4,8 +4,7 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import me.horzwxy.app.android.R;
-import me.horzwxy.app.pfm.android.activity.PFMActivity;
+import me.horzwxy.app.pfm.android.R;
 
 /**
  * Created by horz on 9/8/13.
@@ -26,6 +25,7 @@ public class UnloggedInActivity extends PFMActivity {
                     activity.finish();
                 }
             }
+            System.out.println("finish");
             this.finish();
         }
         return true;

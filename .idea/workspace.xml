@@ -13,7 +13,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="exc" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="System.out" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c09dd3a-aaa5-414f-b700-0ee1e2ed1dee" name="Default" comment="" />
@@ -86,7 +86,7 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="43" selection-start="1350" selection-end="1403" vertical-scroll-proportion="0.0" vertical-offset="572" max-vertical-offset="1260">
+            <state line="30" column="34" selection-start="1500" selection-end="1500" vertical-scroll-proportion="0.0" vertical-offset="562" max-vertical-offset="1320">
               <folding />
             </state>
           </provider>
@@ -95,11 +95,8 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="44" selection-start="621" selection-end="621" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1230">
-              <folding>
-                <element signature="e#498#516#0" expanded="true" />
-                <element signature="e#680#698#0" expanded="true" />
-              </folding>
+            <state line="11" column="13" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,22 +104,32 @@
       <file leaf-file-name="LogInActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LogInActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="22" selection-start="1633" selection-end="1633" vertical-scroll-proportion="0.0" vertical-offset="1112" max-vertical-offset="2070">
+            <state line="115" column="37" selection-start="4301" selection-end="4301" vertical-scroll-proportion="0.0" vertical-offset="2148" max-vertical-offset="4500">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1119#1472#0" expanded="true" />
-                <element signature="e#1461#1462#0" expanded="true" />
-                <element signature="e#1515#1657#0" expanded="true" />
-                <element signature="e#1646#1647#0" expanded="true" />
+                <element signature="e#2163#2564#0" expanded="true" />
+                <element signature="e#2553#2554#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoggedInActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PFMActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/PFMActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="68" selection-start="365" selection-end="365" vertical-scroll-proportion="0.3740458" vertical-offset="352" max-vertical-offset="1170">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#565#575#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoggedInActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LoggedInActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="13" selection-start="732" selection-end="732" vertical-scroll-proportion="0.37354988" vertical-offset="619" max-vertical-offset="1320">
+            <state line="17" column="20" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0" vertical-offset="639" max-vertical-offset="1380">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,10 +140,8 @@
       <file leaf-file-name="NewDiningActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/NewDiningActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="36" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="79" max-vertical-offset="690">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="11" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -147,20 +152,17 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="65" selection-start="1105" selection-end="1105" vertical-scroll-proportion="-28.8" vertical-offset="0" max-vertical-offset="990">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="45" selection-start="425" selection-end="425" vertical-scroll-proportion="-8.4" vertical-offset="90" max-vertical-offset="930">
-              <folding />
+            <state line="6" column="17" selection-start="277" selection-end="277" vertical-scroll-proportion="-7.2" vertical-offset="0" max-vertical-offset="3450">
+              <folding>
+                <element signature="e#1419#1449#0" expanded="true" />
+                <element signature="e#2036#2066#0" expanded="true" />
+                <element signature="e#2255#2291#0" expanded="true" />
+                <element signature="e#2827#2857#0" expanded="true" />
+                <element signature="e#3068#3102#0" expanded="true" />
+                <element signature="e#3840#3870#0" expanded="true" />
+                <element signature="e#4081#4115#0" expanded="true" />
+                <element signature="e#4551#4578#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -168,7 +170,7 @@
       <file leaf-file-name="UnloggedInActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/UnloggedInActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="32" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1170">
+            <state line="13" column="13" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1170">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -179,13 +181,14 @@
       <file leaf-file-name="logged_in_menu.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/menu/logged_in_menu.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="57" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
+            <state line="8" column="50" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200">
               <folding>
-                <element signature="e#275#304#0" expanded="true" />
-                <element signature="e#465#484#0" expanded="true" />
-                <element signature="e#648#670#0" expanded="true" />
+                <element signature="e#268#290#0" expanded="true" />
+                <element signature="e#461#490#0" expanded="true" />
+                <element signature="e#651#670#0" expanded="true" />
                 <element signature="e#834#856#0" expanded="true" />
-                <element signature="e#1017#1036#0" expanded="true" />
+                <element signature="e#1020#1042#0" expanded="true" />
+                <element signature="e#1203#1222#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -197,10 +200,12 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="48" selection-start="710" selection-end="710" vertical-scroll-proportion="-4.64" vertical-offset="394" max-vertical-offset="1440">
+            <state line="17" column="48" selection-start="710" selection-end="710" vertical-scroll-proportion="-15.6" vertical-offset="120" max-vertical-offset="1440">
               <folding>
-                <element signature="e#562#591#0" expanded="true" />
-                <element signature="e#784#814#0" expanded="true" />
+                <element signature="e#562#591#0" expanded="false" />
+                <element signature="e#784#814#0" expanded="false" />
+                <element signature="e#1180#1211#0" expanded="false" />
+                <element signature="e#1597#1620#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -216,22 +221,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/me/horzwxy/app/private_finance_minister/android/model/Person.java" />
-        <option value="$PROJECT_DIR$/res/layout/activity_log_in.xml" />
-        <option value="$PROJECT_DIR$/res/menu/unlogged_in_menu.xml" />
-        <option value="$PROJECT_DIR$/src/me/horzwxy/app/private_finance_minister/android/activity/PFMActivity.java" />
         <option value="$PROJECT_DIR$/src/me/horzwxy/app/private_finance_minister/android/activity/LogInActivity.java" />
-        <option value="$PROJECT_DIR$/res/menu/logged_in_menu.xml" />
         <option value="$PROJECT_DIR$/src/me/horzwxy/app/private_finance_minister/android/activity/UnloggedInActivity.java" />
         <option value="$PROJECT_DIR$/src/me/horzwxy/app/private_finance_minister/android/activity/LoggedInActivity.java" />
         <option value="$PROJECT_DIR$/src/me/horzwxy/app/private_finance_minister/android/activity/NewDiningActivity.java" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_new_dining.xml" />
         <option value="$PROJECT_DIR$/src/me/horzwxy/app/android/activity/LoggedInActivity.java" />
         <option value="$PROJECT_DIR$/src/me/horzwxy/app/android/activity/NewDiningActivity.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/NewDiningActivity.java" />
         <option value="$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LoggedInActivity.java" />
+        <option value="$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/NewDiningActivity.java" />
+        <option value="$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/example/AccountActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_new_dining.xml" />
+        <option value="$PROJECT_DIR$/res/menu/logged_in_menu.xml" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/UnloggedInActivity.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LogInActivity.java" />
+        <option value="$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/PFMActivity.java" />
       </list>
     </option>
   </component>
@@ -289,7 +294,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -444,27 +448,30 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Project" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="Errors" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wordmaster" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -625,7 +632,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -639,19 +646,19 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3168654" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48722318" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.77853495" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22146508" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.51277685" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4701874" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -719,10 +726,7 @@
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="20" selection-start="251" selection-end="251" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1080">
-          <folding>
-            <element signature="e#498#516#0" expanded="true" />
-            <element signature="e#680#698#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -730,15 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="62" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/example/AccountActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="8" selection-start="3392" selection-end="3595" vertical-scroll-proportion="0.34593022" vertical-offset="2401" max-vertical-offset="2880">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -753,17 +748,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="40" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
           <folding>
-            <element signature="e#265#284#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/PFMActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="1" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="660">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#304#314#0" expanded="true" />
+            <element signature="e#265#284#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -773,41 +758,15 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="45" selection-start="425" selection-end="425" vertical-scroll-proportion="-8.4" vertical-offset="90" max-vertical-offset="930">
+        <state line="10" column="45" selection-start="425" selection-end="425" vertical-scroll-proportion="0.115384616" vertical-offset="270" max-vertical-offset="930">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_log_in.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/example/AccountActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="48" selection-start="710" selection-end="710" vertical-scroll-proportion="-4.64" vertical-offset="394" max-vertical-offset="1440">
-          <folding>
-            <element signature="e#562#591#0" expanded="true" />
-            <element signature="e#784#814#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="43" selection-start="1350" selection-end="1403" vertical-scroll-proportion="0.0" vertical-offset="572" max-vertical-offset="1260">
+        <state line="14" column="11" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="422" max-vertical-offset="2850">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/logged_in_menu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="57" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
-          <folding>
-            <element signature="e#275#304#0" expanded="true" />
-            <element signature="e#465#484#0" expanded="true" />
-            <element signature="e#648#670#0" expanded="true" />
-            <element signature="e#834#856#0" expanded="true" />
-            <element signature="e#1017#1036#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -816,27 +775,59 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="65" selection-start="1105" selection-end="1105" vertical-scroll-proportion="-28.8" vertical-offset="0" max-vertical-offset="990">
-          <folding />
+        <state line="6" column="17" selection-start="277" selection-end="277" vertical-scroll-proportion="-7.2" vertical-offset="0" max-vertical-offset="3450">
+          <folding>
+            <element signature="e#1419#1449#0" expanded="true" />
+            <element signature="e#2036#2066#0" expanded="true" />
+            <element signature="e#2255#2291#0" expanded="true" />
+            <element signature="e#2827#2857#0" expanded="true" />
+            <element signature="e#3068#3102#0" expanded="true" />
+            <element signature="e#3840#3870#0" expanded="true" />
+            <element signature="e#4081#4115#0" expanded="true" />
+            <element signature="e#4551#4578#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LogInActivity.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_log_in.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="22" selection-start="1633" selection-end="1633" vertical-scroll-proportion="0.0" vertical-offset="1112" max-vertical-offset="2070">
+        <state line="17" column="48" selection-start="710" selection-end="710" vertical-scroll-proportion="-15.6" vertical-offset="120" max-vertical-offset="1440">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1119#1472#0" expanded="true" />
-            <element signature="e#1461#1462#0" expanded="true" />
-            <element signature="e#1515#1657#0" expanded="true" />
-            <element signature="e#1646#1647#0" expanded="true" />
+            <element signature="e#562#591#0" expanded="false" />
+            <element signature="e#784#814#0" expanded="false" />
+            <element signature="e#1180#1211#0" expanded="false" />
+            <element signature="e#1597#1620#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/menu/logged_in_menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="50" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200">
+          <folding>
+            <element signature="e#268#290#0" expanded="true" />
+            <element signature="e#461#490#0" expanded="true" />
+            <element signature="e#651#670#0" expanded="true" />
+            <element signature="e#834#856#0" expanded="true" />
+            <element signature="e#1020#1042#0" expanded="true" />
+            <element signature="e#1203#1222#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="34" selection-start="1500" selection-end="1500" vertical-scroll-proportion="0.0" vertical-offset="562" max-vertical-offset="1320">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/UnloggedInActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="32" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1170">
+        <state line="13" column="13" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1170">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -845,28 +836,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="44" selection-start="621" selection-end="621" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1230">
-          <folding>
-            <element signature="e#498#516#0" expanded="true" />
-            <element signature="e#680#698#0" expanded="true" />
-          </folding>
+        <state line="11" column="13" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/NewDiningActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="36" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0" vertical-offset="79" max-vertical-offset="690">
+        <state line="11" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LoggedInActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="20" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1380">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LoggedInActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/LogInActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="13" selection-start="732" selection-end="732" vertical-scroll-proportion="0.37354988" vertical-offset="619" max-vertical-offset="1320">
+        <state line="115" column="37" selection-start="4301" selection-end="4301" vertical-scroll-proportion="0.0" vertical-offset="2148" max-vertical-offset="4500">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2163#2564#0" expanded="true" />
+            <element signature="e#2553#2554#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/horzwxy/app/pfm/android/activity/PFMActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="68" selection-start="365" selection-end="365" vertical-scroll-proportion="0.3740458" vertical-offset="352" max-vertical-offset="1170">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#565#575#0" expanded="true" />
           </folding>
         </state>
       </provider>

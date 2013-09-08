@@ -14,8 +14,9 @@
     <string name="new_dining_restuarant_hint_input">输入或选择用餐地点</string>
     <string name="new_dining_restuarant_choose">选择用餐地点</string>
     <string name="new_dining_cost_hint">总金额：</string>
-    <string name="new_dining_cost_hint_input">输入总金额</string>
+    <string name="new_dining_cost_hint_input">未输入总金额</string>
     <string name="new_dining_date_hint">时间：</string>
+    <string name="new_dining_date_hint_input">未选择时间</string>
     <string name="new_dining_mate_hint">参与者：</string>
     <string name="new_dining_mate_add_hint">增加参与者</string>
     <string name="new_dining_mate_delete_hint">删除参与者</string>
@@ -27,6 +28,7 @@
     <string name="new_dining_paid_delete_hint">删除已付项目</string>
     <string name="new_dining_submit">提交聚餐记录</string>
 
+    <string name="menu_setting">设置</string>
     <string name="menu_add_new_dining">新建聚餐记录</string>
     <string name="menu_bill">查看结算结果</string>
     <string name="menu_message">查看消息</string>

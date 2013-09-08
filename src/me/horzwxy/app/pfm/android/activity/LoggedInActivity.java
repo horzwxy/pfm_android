@@ -1,6 +1,7 @@
 package me.horzwxy.app.pfm.android.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -31,7 +32,8 @@ public class LoggedInActivity extends PFMActivity {
 
         }
         else if( item.getItemId() == R.id.menu_add_new_dining ) {
-            Intent
+            Intent intent = new Intent( this, NewDiningActivity.class );
+            startActivity(intent);
         }
         return true;
     }

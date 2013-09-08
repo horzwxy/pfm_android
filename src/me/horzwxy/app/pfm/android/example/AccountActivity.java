@@ -16,7 +16,7 @@ import com.google.android.gms.common.Scopes;
 
 import java.io.IOException;
 
-import me.horzwxy.app.android.R;
+import me.horzwxy.app.pfm.android.R;
 
 /**
  * Created by horz on 9/8/13.
