@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_dining_restuarant_hint"/>
+        <EditText
+            android:id="@+id/new_dining_restuarant_input"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:hint="@string/new_dining_restuarant_hint_input"
+            android:inputType="text"/>
+        <Button
+            android:id="@+id/new_dining_restuarant_choose"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/new_dining_restuarant_choose"/>
+        </LinearLayout>
+
+</LinearLayout>
