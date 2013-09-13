@@ -28,6 +28,17 @@
     <string name="new_dining_paid_delete_hint">删除已付项目</string>
     <string name="new_dining_submit">提交聚餐记录</string>
 
+    <string name="dining_info_restaurant_hint">地点：</string>
+    <string name="dining_info_add_restaurant">添加至饭店列表</string>
+    <string name="dining_info_cost_hint">金额：</string>
+    <string name="dining_info_date_hint">时间：</string>
+    <string name="dining_info_mate_hint">参与者：</string>
+    <string name="dining_info_special_cost_hint">自付项目：</string>
+    <string name="dining_info_paid_hint">已付项目：</string>
+    <string name="dining_info_state_not_approved">待核准</string>
+    <string name="dining_info_state_approved">已核准</string>
+    <string name="dining_info_state_rejected">已否决</string>
+
     <string name="menu_setting">设置</string>
     <string name="menu_add_new_dining">新建聚餐记录</string>
     <string name="menu_bill">查看结算结果</string>
