@@ -35,4 +35,13 @@
     <string name="menu_history">查看历史记录</string>
     <string name="menu_quit">退出</string>
 
+    <string name="logging_in">正在验证身份</string>
+    <string name="fail_log_in">登录失败</string>
+
+    <string name="set_nickname">设置昵称</string>
+    <string name="set_nickname_hint">第一次登录请设置昵称</string>
+    <string name="cannot_no_nickname_hint">sorry,你需要设置昵称</string>
+    <string name="ok">确认</string>
+    <string name="cancle">取消</string>
+
 </resources>
