@@ -8,8 +8,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,19 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.common.AccountPicker;
 import me.horzwxy.app.pfm.android.R;
+import me.horzwxy.app.pfm.model.LogInRequest;
 import me.horzwxy.app.pfm.model.LogInResponse;
-import me.horzwxy.app.pfm.model.LogInResponseType;
+import me.horzwxy.app.pfm.model.Response;
 import me.horzwxy.app.pfm.model.User;
-import me.horzwxy.app.pfm.model.tool.LogInMessage;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
 
 /**
  * Created by horz on 9/8/13.
@@ -67,7 +56,8 @@ public class LogInActivity extends UnloggedInActivity {
         pDialog.setCancelable(true);
         pDialog.setMessage(getResources().getString(R.string.logging_in));
         pDialog.show();
-        new LoggingInTask().execute();
+        LogInRequest request = new LogInRequest( new User( (String)accountNameTextView.getText(), null ) );
+        new LoggingInTask().execute( request );
       }
     });
     submitButton.setEnabled(false);
@@ -83,21 +73,17 @@ public class LogInActivity extends UnloggedInActivity {
     }
   }
 
-  class LoggingInTask extends AsyncTask<User, Void, LogInResponse> {
+  class LoggingInTask extends PFMHttpAsyncTask {
 
     private String nickname = null;
 
     @Override
-    protected LogInResponse doInBackground(User... users) {
-
-    }
-
-    @Override
-    protected void onPostExecute(LogInResponse response) {
-        if (response.type == LogInResponseType.SUCCESS) {
+    protected void onPostExecute(Response response) {
+        LogInResponse logInResponse = (LogInResponse) response;
+        if (logInResponse.getType() == LogInResponse.LogInResponseType.SUCCESS) {
             Intent intent = new Intent(LogInActivity.this, NewDiningActivity.class);
             startActivity(intent);
-        } else if (response.type == LogInResponseType.SUCCESS_BUT_FIRST) {
+        } else if (logInResponse.getType() == LogInResponse.LogInResponseType.SUCCESS_BUT_FIRST) {
             AlertDialog.Builder alert = new AlertDialog.Builder(LogInActivity.this);
             alert.setTitle(R.string.set_nickname);
             alert.setMessage(R.string.set_nickname_hint);
@@ -108,6 +94,7 @@ public class LogInActivity extends UnloggedInActivity {
             alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                     String nickname = input.getEditableText().toString();
+                    Toast.makeText(LogInActivity.this, nickname, Toast.LENGTH_SHORT).show();
                 }
             });
             alert.setNegativeButton(R.string.cancle, new DialogInterface.OnClickListener() {
