@@ -25,7 +25,7 @@ public class PFMActivity extends Activity {
     protected ArrayList<Activity> createdActivities = new ArrayList<Activity>();
     protected User currentUser;
 
-    protected class PFMHttpAsyncTask extends AsyncTask< Request, Void, Response> {
+    protected abstract class PFMHttpAsyncTask extends AsyncTask< Request, Void, Response> {
         protected static final String HOST_NAME = "http://pfm.horzwxy.me";
 
         @Override
@@ -61,5 +61,8 @@ public class PFMActivity extends Activity {
             }
             return response;
         }
+
+        @Override
+        protected abstract void onPostExecute(Response response);
     }
 }

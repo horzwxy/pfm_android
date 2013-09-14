@@ -18,6 +18,8 @@ import me.horzwxy.app.pfm.android.R;
 import me.horzwxy.app.pfm.model.LogInRequest;
 import me.horzwxy.app.pfm.model.LogInResponse;
 import me.horzwxy.app.pfm.model.Response;
+import me.horzwxy.app.pfm.model.SetNicknameRequest;
+import me.horzwxy.app.pfm.model.SetNicknameResponse;
 import me.horzwxy.app.pfm.model.User;
 
 /**
@@ -74,13 +76,11 @@ public class LogInActivity extends UnloggedInActivity {
   }
 
   class LoggingInTask extends PFMHttpAsyncTask {
-
-    private String nickname = null;
-
     @Override
     protected void onPostExecute(Response response) {
         LogInResponse logInResponse = (LogInResponse) response;
         if (logInResponse.getType() == LogInResponse.LogInResponseType.SUCCESS) {
+            pDialog.dismiss();
             Intent intent = new Intent(LogInActivity.this, NewDiningActivity.class);
             startActivity(intent);
         } else if (logInResponse.getType() == LogInResponse.LogInResponseType.SUCCESS_BUT_FIRST) {
@@ -94,7 +94,14 @@ public class LogInActivity extends UnloggedInActivity {
             alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                     String nickname = input.getEditableText().toString();
-                    Toast.makeText(LogInActivity.this, nickname, Toast.LENGTH_SHORT).show();
+                    SetNicknameRequest request = new SetNicknameRequest(
+                            new User( (String)accountNameTextView.getText(), nickname ) );
+                    new SetNicknameTask().execute( request );
+                    pDialog.dismiss();
+                    pDialog = new ProgressDialog(LogInActivity.this);
+                    pDialog.setCancelable(true);
+                    pDialog.setMessage(getResources().getString(R.string.setting_nickname_hint));
+                    pDialog.show();
                 }
             });
             alert.setNegativeButton(R.string.cancle, new DialogInterface.OnClickListener() {
@@ -111,12 +118,51 @@ public class LogInActivity extends UnloggedInActivity {
     }
   }
 
-  class SetNicknameTask extends AsyncTask<User, Void, Boolean> {
-    @Override
-    protected Boolean doInBackground(User... users) {
+  class SetNicknameTask extends PFMHttpAsyncTask {
 
+      @Override
+      protected void onPostExecute(Response response) {
+          SetNicknameResponse setNicknameResponse = (SetNicknameResponse)response;
+          SetNicknameResponse.SetNicknameResponseType type = setNicknameResponse.getType();
+          if( type == SetNicknameResponse.SetNicknameResponseType.SUCCESS ) {
+              pDialog.dismiss();
+              Intent intent = new Intent(LogInActivity.this, NewDiningActivity.class);
+              startActivity(intent);
+              return;
+          }
+          else if( type == SetNicknameResponse.SetNicknameResponseType.USED ) {
+              AlertDialog.Builder alert = new AlertDialog.Builder(LogInActivity.this);
+              alert.setTitle(R.string.set_nickname);
+              alert.setMessage(R.string.setting_nickname_used);
 
-      return false;
-    }
+              // Set an EditText view to get user input
+              final EditText input = new EditText(LogInActivity.this);
+              alert.setView(input);
+              alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int whichButton) {
+                      String nickname = input.getEditableText().toString();
+                      SetNicknameRequest request = new SetNicknameRequest(
+                              new User( (String)accountNameTextView.getText(), nickname ) );
+                      new SetNicknameTask().execute( request );
+                      pDialog.dismiss();
+                      pDialog = new ProgressDialog(LogInActivity.this);
+                      pDialog.setCancelable(true);
+                      pDialog.setMessage(getResources().getString(R.string.setting_nickname_hint));
+                      pDialog.show();
+                  }
+              });
+              alert.setNegativeButton(R.string.cancle, new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int whichButton) {
+                      Toast.makeText(LogInActivity.this, R.string.cannot_no_nickname_hint, Toast.LENGTH_SHORT).show();
+                  }
+              });
+              alert.show();
+              pDialog.dismiss();
+          }
+          else {
+              pDialog.dismiss();
+              Toast.makeText(LogInActivity.this, R.string.setting_nickname_failed, Toast.LENGTH_SHORT).show();
+          }
+      }
   }
 }
