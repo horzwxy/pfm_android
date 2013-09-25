@@ -46,6 +46,9 @@ public class PFMActivity extends Activity {
                 PrintWriter writer = new PrintWriter( connection.getOutputStream() );
                 String content = request.getPostContent();
                 writer.println(content);
+
+                // todo
+                System.out.println( content );
                 writer.flush();
                 writer.close();
                 BufferedReader reader = new BufferedReader(

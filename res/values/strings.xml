@@ -54,7 +54,7 @@
     <string name="cannot_no_nickname_hint">sorry,你需要设置昵称</string>
     <string name="ok">确认</string>
     <string name="cancle">取消</string>
-    <string name="setting_nickname_hint">正在注册昵称</string>
+    <string name="setting_nickname_hint">正在登记昵称</string>
     <string name="setting_nickname_success">设置成功</string>
     <string name="setting_nickname_failed">设置失败，请重新登录</string>
     <string name="setting_nickname_used">该昵称已存在</string>
