@@ -97,6 +97,8 @@ public class LogInActivity extends UnloggedInActivity {
                     System.out.println( (String)accountNameTextView.getText() );
                     SetNicknameRequest request = new SetNicknameRequest(
                             new User( (String)accountNameTextView.getText(), nickname ) );
+                    // todo
+                    System.out.println( (String)accountNameTextView.getText() );
                     new SetNicknameTask().execute( request );
                     pDialog.dismiss();
                     pDialog = new ProgressDialog(LogInActivity.this);
