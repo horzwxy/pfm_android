@@ -50,7 +50,9 @@ public class PFMActivity extends Activity {
                 writer.close();
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader( connection.getInputStream() ) );
-                response = Response.parseResponse( reader.readLine() );
+                String line  = reader.readLine();
+                System.out.println( line );
+                response = Response.parseResponse( line );
                 reader.close();
             } catch (MalformedURLException e) {
                 e.printStackTrace();
