@@ -94,6 +94,7 @@ public class LogInActivity extends UnloggedInActivity {
             alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                     String nickname = input.getEditableText().toString();
+                    System.out.println( (String)accountNameTextView.getText() );
                     SetNicknameRequest request = new SetNicknameRequest(
                             new User( (String)accountNameTextView.getText(), nickname ) );
                     new SetNicknameTask().execute( request );
