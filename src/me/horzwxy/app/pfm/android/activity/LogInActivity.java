@@ -81,6 +81,7 @@ public class LogInActivity extends UnloggedInActivity {
         LogInResponse logInResponse = (LogInResponse) response;
         if (logInResponse.getType() == LogInResponse.LogInResponseType.SUCCESS) {
             pDialog.dismiss();
+            currentUser.nickname = logInResponse.getNickname();
             Intent intent = new Intent(LogInActivity.this, NewDiningActivity.class);
             startActivity(intent);
         } else if (logInResponse.getType() == LogInResponse.LogInResponseType.SUCCESS_BUT_FIRST) {
@@ -94,7 +95,7 @@ public class LogInActivity extends UnloggedInActivity {
             alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                     String nickname = input.getEditableText().toString();
-                    System.out.println( (String)accountNameTextView.getText() );
+                    currentUser.nickname = nickname;
                     SetNicknameRequest request = new SetNicknameRequest(
                             new User( (String)accountNameTextView.getText(), nickname ) );
                     new SetNicknameTask().execute( request );
