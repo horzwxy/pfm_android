@@ -1,8 +1,11 @@
 package me.horzwxy.app.pfm.android.activity;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
@@ -25,13 +28,16 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
 
     private ProgressDialog pDialog;
     private LinearLayout lineList;
+    private ArrayList< User > participants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_participants );
 
+        participants = ( ArrayList< User > )getIntent().getSerializableExtra( "participants" );
         lineList = ( LinearLayout ) findViewById( R.id.participant_list );
+        participants = new ArrayList<User>();
     }
 
     @Override
@@ -52,6 +58,24 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
         task.execute( new ListContactsRequest( currentUser ) );
     }
 
+    public void onStageChange( View v ) {
+        CheckBox checkBox = ( CheckBox )v;
+        User user = new User( null, checkBox.getHint() + "" );
+        if( checkBox.isChecked() ) {
+            participants.add( user );
+        }
+        else {
+            participants.remove( user );
+        }
+    }
+
+    public void save( View v ) {
+        Intent intent = new Intent();
+        intent.putExtra( "participants", participants );
+        setResult( Activity.RESULT_OK, intent );
+        finish();
+    }
+
     class ListContactsTask extends PFMHttpAsyncTask {
 
         @Override
@@ -61,6 +85,7 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
             LinearLayout authorLine = ( LinearLayout ) ChooseParticipantsActivity.this.getLayoutInflater()
                     .inflate( R.layout.line_choose_participants, null );
             CheckBox authorCheckBox = ( CheckBox ) authorLine.findViewById( R.id.choose_participants_checkbox );
+            authorCheckBox.setHint( currentUser.nickname );
             authorCheckBox.setChecked( true );
             TextView authorTextView = ( TextView ) authorLine.findViewById( R.id.choose_participants_nickname );
             authorTextView.setText( currentUser.nickname );
@@ -72,6 +97,10 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
                 LinearLayout line = ( LinearLayout ) ChooseParticipantsActivity.this.getLayoutInflater()
                         .inflate( R.layout.line_choose_participants, null );
                 CheckBox checkBox = ( CheckBox ) line.findViewById( R.id.choose_participants_checkbox );
+                checkBox.setHint( user.nickname );
+                if( participants.contains( new User( null, user.nickname ) ) ) {
+                    checkBox.setChecked( true );
+                }
                 TextView textView = ( TextView ) line.findViewById( R.id.choose_participants_nickname );
                 textView.setText( user.nickname );
 
