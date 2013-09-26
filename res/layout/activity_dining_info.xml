@@ -68,7 +68,7 @@
                     android:id="@+id/new_dining_mate_add"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="@string/new_dining_mate_add_hint"/>
+                    android:text="@string/new_dining_mate_choose_hint"/>
         </LinearLayout>
         <LinearLayout
                 android:id="@+id/new_dining_mate_list"
@@ -92,7 +92,7 @@
                     android:id="@+id/new_dining_paid_add"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="@string/new_dining_paid_add_hint"/>
+                    android:text="@string/new_dining_paid_modify_hint"/>
         </LinearLayout>
         <LinearLayout
                 android:id="@+id/new_dining_paid_list"
