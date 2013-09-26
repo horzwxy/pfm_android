@@ -1,5 +1,6 @@
 package me.horzwxy.app.pfm.android.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,13 +30,15 @@ public class NewDiningActivity extends LoggedInActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch ( requestCode ) {
-            case REQUEST_FOR_PARTICIPANTS:
-                participantsList = ( ArrayList< User > )data.getSerializableExtra( "participants" );
-                break;
-            default:
-                super.onActivityResult(requestCode, resultCode, data);
-                break;
+        if( requestCode == Activity.RESULT_OK ) {
+            switch ( requestCode ) {
+                case REQUEST_FOR_PARTICIPANTS:
+                    participantsList = ( ArrayList< User > )data.getSerializableExtra( "participants" );
+                    break;
+                default:
+                    super.onActivityResult(requestCode, resultCode, data);
+                    break;
+            }
         }
     }
 

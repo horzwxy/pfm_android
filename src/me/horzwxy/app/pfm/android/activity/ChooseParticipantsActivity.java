@@ -6,11 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +34,6 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
 
         participants = ( ArrayList< User > )getIntent().getSerializableExtra( "participants" );
         lineList = ( LinearLayout ) findViewById( R.id.participant_list );
-        participants = new ArrayList<User>();
     }
 
     @Override
@@ -58,7 +54,7 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
         task.execute( new ListContactsRequest( currentUser ) );
     }
 
-    public void onStageChange( View v ) {
+    public void onStateChange( View v ) {
         CheckBox checkBox = ( CheckBox )v;
         User user = new User( null, checkBox.getHint() + "" );
         if( checkBox.isChecked() ) {
@@ -73,7 +69,7 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
         Intent intent = new Intent();
         intent.putExtra( "participants", participants );
         setResult( Activity.RESULT_OK, intent );
-        finish();
+        ChooseParticipantsActivity.this.finish();
     }
 
     class ListContactsTask extends PFMHttpAsyncTask {
@@ -86,9 +82,6 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
                     .inflate( R.layout.line_choose_participants, null );
             CheckBox authorCheckBox = ( CheckBox ) authorLine.findViewById( R.id.choose_participants_checkbox );
             authorCheckBox.setHint( currentUser.nickname );
-            authorCheckBox.setChecked( true );
-            TextView authorTextView = ( TextView ) authorLine.findViewById( R.id.choose_participants_nickname );
-            authorTextView.setText( currentUser.nickname );
             lineList.addView( authorLine );
 
             List< User > contacts = lcResponse.getContactList();
@@ -101,8 +94,6 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
                 if( participants.contains( new User( null, user.nickname ) ) ) {
                     checkBox.setChecked( true );
                 }
-                TextView textView = ( TextView ) line.findViewById( R.id.choose_participants_nickname );
-                textView.setText( user.nickname );
 
                 lineList.addView( line );
             }
