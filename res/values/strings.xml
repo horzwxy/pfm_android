@@ -60,6 +60,7 @@
     <string name="setting_nickname_used">该昵称已存在</string>
 
     <string name="list_contacts_connecting">正在获取好友列表</string>
+    <string name="list_contacts_success">获取列表成功</string>
     <string name="list_contacts_add">添加好友</string>
     <string name="list_contacts_hint">输入好友昵称</string>
     <string name="list_contacts_add_connecting">正在注册好友信息</string>

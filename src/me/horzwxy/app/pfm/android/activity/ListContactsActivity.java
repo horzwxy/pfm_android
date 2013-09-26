@@ -32,6 +32,7 @@ public class ListContactsActivity extends LoggedInActivity {
     private ProgressDialog pDialog;
     private ListView listView;
     private ArrayAdapter< String > adapter;
+    private ContactInfo info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ public class ListContactsActivity extends LoggedInActivity {
     }
 
     public void addContact( View v ) {
-        final ContactInfo info = new ContactInfo( currentUser, null );
+        info = new ContactInfo( currentUser, null );
 
         AlertDialog.Builder alert = new AlertDialog.Builder(ListContactsActivity.this);
         alert.setTitle(R.string.list_contacts_add);
@@ -91,12 +92,12 @@ public class ListContactsActivity extends LoggedInActivity {
         protected void onPostExecute(Response response) {
             AddContactResponse acResponse = ( AddContactResponse ) response;
             if( acResponse.getType() == AddContactResponse.AddContactResponseType.SUCCESS ) {
-                // todo
+                String nickname = info.friend.nickname;
+                adapter.add( nickname );
+                adapter.notifyDataSetChanged();
                 pDialog.dismiss();
             }
             else {
-                final ContactInfo info = new ContactInfo( currentUser, null );
-
                 AlertDialog.Builder alert = new AlertDialog.Builder(ListContactsActivity.this);
                 alert.setTitle(R.string.list_contacts_add);
                 alert.setMessage(R.string.list_contacts_add_no_such_user);
@@ -137,8 +138,8 @@ public class ListContactsActivity extends LoggedInActivity {
             adapter = new ArrayAdapter<String>( ListContactsActivity.this,
                     android.R.layout.simple_list_item_1, nicknameArray );
             listView.setAdapter( adapter );
-            // todo
-            System.out.println( "show list" );
+            pDialog.dismiss();
+            Toast.makeText( ListContactsActivity.this, getResources().getString( R.string.list_contacts_success ), Toast.LENGTH_SHORT ).show();
         }
     }
 }

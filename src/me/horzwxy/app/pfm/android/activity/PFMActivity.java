@@ -23,7 +23,7 @@ import me.horzwxy.app.pfm.model.User;
 public class PFMActivity extends Activity {
 
     protected ArrayList<Activity> createdActivities = new ArrayList<Activity>();
-    protected User currentUser;
+    protected User currentUser = new User( "wangxiayang.fdt@gmail.com", "wxy" );
 
     protected abstract class PFMHttpAsyncTask extends AsyncTask< Request, Void, Response> {
         protected static final String HOST_NAME = "http://192.168.1.105:8888";//"http://pfm.horzwxy.me";
@@ -48,13 +48,14 @@ public class PFMActivity extends Activity {
                 writer.print(content);
 
                 // todo
-                System.out.println( content );
+                System.out.println( "51  " + content );
                 writer.flush();
                 writer.close();
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader( connection.getInputStream() ) );
                 String line  = reader.readLine();
-                System.out.println( line );
+                // todo
+                System.out.println( "58  " + line );
                 response = Response.parseResponse( line );
                 reader.close();
             } catch (MalformedURLException e) {
