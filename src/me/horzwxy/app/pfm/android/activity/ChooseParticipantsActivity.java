@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -26,14 +27,14 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
 
     private ProgressDialog pDialog;
     private LinearLayout lineList;
-    private Dining diningInfo;
+    private ArrayList< User > participants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_participants );
 
-        diningInfo = new Dining();
+        participants = new ArrayList<User>();
         lineList = ( LinearLayout ) findViewById( R.id.participant_list );
     }
 
@@ -59,18 +60,19 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
         CheckBox checkBox = ( CheckBox )v;
         User user = new User( null, checkBox.getHint() + "" );
         if( checkBox.isChecked() ) {
-            diningInfo.participants.add( user );
+            participants.add(user);
         }
         else {
-            diningInfo.participants.remove( user );
+            participants.remove(user);
         }
     }
 
     public void save( View v ) {
         Intent intent = new Intent();
-        intent.putExtra( "participants", diningInfo.participants );
+        intent.putExtra( "participants", participants );
         setResult( Activity.RESULT_OK, intent );
-        ChooseParticipantsActivity.this.finish();
+        System.out.println( "on result " + participants.size() );
+        finish();
     }
 
     class ListContactsTask extends PFMHttpAsyncTask {
@@ -92,7 +94,7 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
                         .inflate( R.layout.line_choose_participants, null );
                 CheckBox checkBox = ( CheckBox ) line.findViewById( R.id.choose_participants_checkbox );
                 checkBox.setHint( user.nickname );
-                if( diningInfo.participants.contains( new User( null, user.nickname ) ) ) {
+                if( participants.contains( new User( null, user.nickname ) ) ) {
                     checkBox.setChecked( true );
                 }
 

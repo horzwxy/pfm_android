@@ -57,16 +57,17 @@ public class NewDiningActivity extends LoggedInActivity {
         dateButton.setText( calendar.get( Calendar.YEAR ) + "/"
                 + calendar.get( Calendar.MONTH ) + "/"
                 + calendar.get( Calendar.DAY_OF_MONTH ) );
-        timeButton.setText( calendar.get( Calendar.HOUR_OF_DAY ) + "/"
+        timeButton.setText( calendar.get( Calendar.HOUR_OF_DAY ) + ":"
                 + calendar.get( Calendar.MINUTE ) );
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if( requestCode == Activity.RESULT_OK ) {
+        if( resultCode == Activity.RESULT_OK ) {
             switch ( requestCode ) {
                 case REQUEST_FOR_PARTICIPANTS:
                     diningInfo.participants = ( ArrayList< User > )data.getSerializableExtra( "participants" );
+                    System.out.println( "on result " + diningInfo.participants.size() );
                     break;
                 default:
                     super.onActivityResult(requestCode, resultCode, data);
@@ -144,6 +145,7 @@ public class NewDiningActivity extends LoggedInActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        diningInfo.author = currentUser;
         final AddDiningInfoTask task = new AddDiningInfoTask();
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(true);
