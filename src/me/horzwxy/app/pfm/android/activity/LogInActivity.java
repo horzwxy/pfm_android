@@ -84,6 +84,8 @@ public class LogInActivity extends UnloggedInActivity {
             currentUser.nickname = logInResponse.getNickname();
             Intent intent = new Intent(LogInActivity.this, NewDiningActivity.class);
             startActivity(intent);
+            createdActivities.remove( LogInActivity.this );
+            LogInActivity.this.finish();
         } else if (logInResponse.getType() == LogInResponse.LogInResponseType.SUCCESS_BUT_FIRST) {
             AlertDialog.Builder alert = new AlertDialog.Builder(LogInActivity.this);
             alert.setTitle(R.string.set_nickname);
@@ -127,9 +129,11 @@ public class LogInActivity extends UnloggedInActivity {
           SetNicknameResponse setNicknameResponse = (SetNicknameResponse)response;
           SetNicknameResponse.SetNicknameResponseType type = setNicknameResponse.getType();
           if( type == SetNicknameResponse.SetNicknameResponseType.SUCCESS ) {
+              createdActivities.remove( LogInActivity.this );
               pDialog.dismiss();
               Intent intent = new Intent(LogInActivity.this, NewDiningActivity.class);
               startActivity(intent);
+              LogInActivity.this.finish();
               return;
           }
           else if( type == SetNicknameResponse.SetNicknameResponseType.USED ) {

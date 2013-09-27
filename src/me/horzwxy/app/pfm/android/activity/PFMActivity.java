@@ -26,7 +26,7 @@ public class PFMActivity extends Activity {
     protected static User currentUser;
 
     protected abstract class PFMHttpAsyncTask extends AsyncTask< Request, Void, Response> {
-        protected static final String HOST_NAME = "http://192.168.1.105:8888";//"http://pfm.horzwxy.me";
+        protected static final String HOST_NAME = "http://pfm.horzwxy.me";
 
         @Override
         protected Response doInBackground(Request... infos) {
