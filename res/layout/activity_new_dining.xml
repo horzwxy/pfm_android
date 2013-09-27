@@ -22,6 +22,7 @@
             android:id="@+id/new_dining_restuarant_choose"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:enabled="false"
             android:text="@string/new_dining_restuarant_choose"/>
         </LinearLayout>
     <LinearLayout
@@ -47,12 +48,16 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="@string/new_dining_date_hint"/>
-        <EditText
-            android:id="@+id/new_dining_date"
+        <Button
+            android:id="@+id/new_dining_show_date_picker"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="@string/new_dining_date_hint_input"
-            android:inputType="date"/>
+            android:onClick="showDatePicker"/>
+        <Button
+            android:id="@+id/new_dining_show_time_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showTimePicker"/>
         </LinearLayout>
     <LinearLayout
         android:layout_height="wrap_content"
@@ -95,6 +100,7 @@
                 android:id="@+id/new_dining_paid_add"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
+                android:enabled="false"
                 android:text="@string/new_dining_paid_modify_hint"/>
             </LinearLayout>
         <LinearLayout
@@ -119,6 +125,7 @@
                     android:id="@+id/new_dining_paid_add"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:enabled="false"
                     android:text="@string/new_dining_special_cost_add_hint"/>
         </LinearLayout>
         <LinearLayout
@@ -131,5 +138,6 @@
         android:id="@+id/new_dining_submit"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:onClick="submit"
         android:text="@string/new_dining_submit"/>
 </LinearLayout>

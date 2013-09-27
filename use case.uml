@@ -3229,7 +3229,7 @@
 <XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="igeRVV5paUO1U18+p4qtQAAA">
 <XPD:ATTR name="Name" type="string">CollaborationInstanceSet1</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">M3MmjWv+ykiRPr3nWhsh6QAA</XPD:REF>
-<XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="#InteractionInstanceSets" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="WCbfnnhGKUqUDAsOx3wjcQAA">
 <XPD:ATTR name="Name" type="string">InteractionInstanceSet1</XPD:ATTR>
 <XPD:REF name="Context">igeRVV5paUO1U18+p4qtQAAA</XPD:REF>
@@ -4040,7 +4040,68 @@
 <XPD:REF name="Views[3]">GLN4dd4jfUa1E8C8hX6gZQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#ParticipatingInstances" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="InteractionInstanceSets[1]" type="UMLInteractionInstanceSet" guid="XNzsuTQ7DUGAImrh4B0jugAA">
+<XPD:ATTR name="Name" type="string">InteractionInstanceSet2</XPD:ATTR>
+<XPD:REF name="Context">igeRVV5paUO1U18+p4qtQAAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="H0SBvdMG/0+4Ql/nug69uwAA">
+<XPD:ATTR name="Name" type="string">show contact</XPD:ATTR>
+<XPD:REF name="DiagramOwner">XNzsuTQ7DUGAImrh4B0jugAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="EMs/U+0sxkyG0oI9MLmZKwAA">
+<XPD:REF name="Diagram">H0SBvdMG/0+4Ql/nug69uwAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLSeqObjectView" guid="TUFAch1oj02Bth2+pgGFewAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">140</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">32</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">70</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">350</XPD:ATTR>
+<XPD:REF name="Model">/ErI6by/I0GKtuzgvB8baQAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="p5UFZzFll0OzS0lcrtKqeQAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="d00lLT+luEyCsQsukKGpHAAA">
+<XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">android ui</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="nGS5CfIOgE2hTTsnJTtqwAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="uqPPRMQz6EiQAe9pMHGwfwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="LifeLine" type="UMLLifeLineView" guid="EFHTIV4h+U2fto71i5xJUQAA">
+<XPD:REF name="Model">/ErI6by/I0GKtuzgvB8baQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLSeqObjectView" guid="uY3cSnBdtUyqGGS89NzlkgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">440</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">32</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">70</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">350</XPD:ATTR>
+<XPD:REF name="Model">ywh8dVJ0ZE+bvECZMQ3ucgAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="OEAORFHi2EStcqJxUE62LwAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="xuhV3KWWpE2wlEbRMyM+QAAA">
+<XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">server</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="fiVtOY0TaEiiFyyeZMTOkAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="/Vgodd6mo0qLC7n52KmjVQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="LifeLine" type="UMLLifeLineView" guid="fhu9B+tkW0uXaXqkwjhq8AAA">
+<XPD:REF name="Model">ywh8dVJ0ZE+bvECZMQ3ucgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#ParticipatingInstances" type="integer">6</XPD:ATTR>
 <XPD:OBJ name="ParticipatingInstances[0]" type="UMLObject" guid="WMuzzi0uH0uJyTFYSvh1sAAA">
 <XPD:ATTR name="Name" type="string">AddNewDiningInfoServlet</XPD:ATTR>
 <XPD:REF name="CollaborationInstanceSet">igeRVV5paUO1U18+p4qtQAAA</XPD:REF>
@@ -4104,6 +4165,20 @@
 <XPD:REF name="ReceivingStimuli[1]">HMzB5OLn7UWFR+ngVjyFjQAA</XPD:REF>
 <XPD:REF name="ReceivingStimuli[2]">EMl1rYNFSE+g5KMKzRetIQAA</XPD:REF>
 <XPD:REF name="ReceivingStimuli[3]">5sd4A+OOT0y93qhDBMmRVwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ParticipatingInstances[4]" type="UMLObject" guid="/ErI6by/I0GKtuzgvB8baQAA">
+<XPD:ATTR name="Name" type="string">android ui</XPD:ATTR>
+<XPD:REF name="CollaborationInstanceSet">igeRVV5paUO1U18+p4qtQAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
+<XPD:REF name="Views[0]">TUFAch1oj02Bth2+pgGFewAA</XPD:REF>
+<XPD:REF name="Views[1]">EFHTIV4h+U2fto71i5xJUQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ParticipatingInstances[5]" type="UMLObject" guid="ywh8dVJ0ZE+bvECZMQ3ucgAA">
+<XPD:ATTR name="Name" type="string">server</XPD:ATTR>
+<XPD:REF name="CollaborationInstanceSet">igeRVV5paUO1U18+p4qtQAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
+<XPD:REF name="Views[0]">uY3cSnBdtUyqGGS89NzlkgAA</XPD:REF>
+<XPD:REF name="Views[1]">fhu9B+tkW0uXaXqkwjhq8AAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>

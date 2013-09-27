@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.horzwxy.app.pfm.android.R;
+import me.horzwxy.app.pfm.model.Dining;
 import me.horzwxy.app.pfm.model.ListContactsRequest;
 import me.horzwxy.app.pfm.model.ListContactsResponse;
 import me.horzwxy.app.pfm.model.Response;
@@ -25,14 +26,14 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
 
     private ProgressDialog pDialog;
     private LinearLayout lineList;
-    private ArrayList< User > participants;
+    private Dining diningInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_participants );
 
-        participants = ( ArrayList< User > )getIntent().getSerializableExtra( "participants" );
+        diningInfo = new Dining();
         lineList = ( LinearLayout ) findViewById( R.id.participant_list );
     }
 
@@ -58,16 +59,16 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
         CheckBox checkBox = ( CheckBox )v;
         User user = new User( null, checkBox.getHint() + "" );
         if( checkBox.isChecked() ) {
-            participants.add( user );
+            diningInfo.participants.add( user );
         }
         else {
-            participants.remove( user );
+            diningInfo.participants.remove( user );
         }
     }
 
     public void save( View v ) {
         Intent intent = new Intent();
-        intent.putExtra( "participants", participants );
+        intent.putExtra( "participants", diningInfo.participants );
         setResult( Activity.RESULT_OK, intent );
         ChooseParticipantsActivity.this.finish();
     }
@@ -91,7 +92,7 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
                         .inflate( R.layout.line_choose_participants, null );
                 CheckBox checkBox = ( CheckBox ) line.findViewById( R.id.choose_participants_checkbox );
                 checkBox.setHint( user.nickname );
-                if( participants.contains( new User( null, user.nickname ) ) ) {
+                if( diningInfo.participants.contains( new User( null, user.nickname ) ) ) {
                     checkBox.setChecked( true );
                 }
 
