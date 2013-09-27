@@ -69,8 +69,8 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
 
     public void save( View v ) {
         Intent intent = new Intent();
-        intent.putExtra( "participants", participants );
-        setResult( Activity.RESULT_OK, intent );
+        intent.putExtra("participants", participants);
+        setResult(Activity.RESULT_OK, intent);
         finish();
     }
 

@@ -19,7 +19,7 @@ public class LoggedInActivity extends PFMActivity {
     }
 
     @Override
-    public boolean onContextItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         if( item.getItemId() == R.id.menu_quit ) {
             for( Activity activity : createdActivities ) {
                 if( activity != null && activity != this ) {
@@ -27,6 +27,10 @@ public class LoggedInActivity extends PFMActivity {
                 }
             }
             this.finish();
+        }
+        else if( item.getItemId() == R.id.menu_list_contacts ) {
+            Intent intent = new Intent( this, ListContactsActivity.class );
+            startActivity(intent);
         }
         else if( item.getItemId() == R.id.menu_message ) {
 

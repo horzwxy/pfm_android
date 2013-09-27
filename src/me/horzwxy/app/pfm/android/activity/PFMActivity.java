@@ -22,8 +22,8 @@ import me.horzwxy.app.pfm.model.User;
  */
 public class PFMActivity extends Activity {
 
-    protected ArrayList<Activity> createdActivities = new ArrayList<Activity>();
-    protected User currentUser = new User( "wangxiayang.fdt@gmail.com", "wxy" );
+    protected static ArrayList<Activity> createdActivities = new ArrayList<Activity>();
+    protected static User currentUser;
 
     protected abstract class PFMHttpAsyncTask extends AsyncTask< Request, Void, Response> {
         protected static final String HOST_NAME = "http://192.168.1.105:8888";//"http://pfm.horzwxy.me";

@@ -19,7 +19,6 @@ public class UnloggedInActivity extends PFMActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-      System.out.println(item.getTitle());
         if( item.getItemId() == R.id.menu_quit ) {
             for( Activity activity : createdActivities ) {
                 if( activity != null && activity != this ) {
