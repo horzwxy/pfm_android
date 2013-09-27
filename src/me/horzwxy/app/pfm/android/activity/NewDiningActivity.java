@@ -47,6 +47,7 @@ public class NewDiningActivity extends LoggedInActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_dining);
 
+        diningInfo = new Dining();
         restaurantInput = ( EditText ) findViewById( R.id.new_dining_restuarant_input );
         costInput = ( EditText ) findViewById( R.id.new_dining_cost );
         dateButton = ( Button ) findViewById(R.id.new_dining_show_date_picker);
@@ -123,12 +124,16 @@ public class NewDiningActivity extends LoggedInActivity {
         String costString = costInput.getText() + "";
         String dateString = dateButton.getText().toString();
         String timeString = timeButton.getText().toString();
-        if( restaurant == null ) {
+        if( restaurant.equals( "" ) ) {
             Toast.makeText( this, getResources().getText( R.string.new_dining_failed_no_restaurant ), Toast.LENGTH_SHORT ).show();
             return;
         }
-        if( costString == null ) {
+        if( costString.equals( "" ) ) {
             Toast.makeText( this, getResources().getText( R.string.new_dining_failed_no_cost ), Toast.LENGTH_SHORT ).show();
+            return;
+        }
+        if( diningInfo.participants.size() == 0 ) {
+            Toast.makeText( this, getResources().getText( R.string.new_dining_failed_no_participants ), Toast.LENGTH_SHORT ).show();
             return;
         }
         diningInfo.restaurant = restaurant;

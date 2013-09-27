@@ -45,12 +45,16 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="@string/new_dining_date_hint"/>
-        <EditText
-                android:id="@+id/new_dining_date"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:hint="@string/new_dining_date_hint_input"
-                android:inputType="datetime"/>
+        <Button
+            android:id="@+id/new_dining_show_date_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showDatePicker"/>
+        <Button
+            android:id="@+id/new_dining_show_time_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showTimePicker"/>
     </LinearLayout>
     <LinearLayout
             android:layout_height="wrap_content"
