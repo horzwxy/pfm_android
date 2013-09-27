@@ -55,8 +55,18 @@ public class NewDiningActivity extends LoggedInActivity {
 
         Calendar calendar = Calendar.getInstance();
         dateButton.setText( calendar.get( Calendar.YEAR ) + "/"
-                + calendar.get( Calendar.MONTH ) + "/"
+                + ( calendar.get( Calendar.MONTH ) + 1 ) + "/"
                 + calendar.get( Calendar.DAY_OF_MONTH ) );
+        int hour = calendar.get( Calendar.HOUR_OF_DAY );
+        int minute = calendar.get( Calendar.MINUTE );
+        String hourString = hour + "";
+        if( hour < 10 ) {
+            hourString = "0" + hour;
+        }
+        String minuteString = minute + "";
+        if( minute < 10 ) {
+            minuteString = "0" + minute;
+        }
         timeButton.setText( calendar.get( Calendar.HOUR_OF_DAY ) + ":"
                 + calendar.get( Calendar.MINUTE ) );
     }
@@ -67,7 +77,6 @@ public class NewDiningActivity extends LoggedInActivity {
             switch ( requestCode ) {
                 case REQUEST_FOR_PARTICIPANTS:
                     diningInfo.participants = ( ArrayList< User > )data.getSerializableExtra( "participants" );
-                    System.out.println( "on result " + diningInfo.participants.size() );
                     break;
                 default:
                     super.onActivityResult(requestCode, resultCode, data);
