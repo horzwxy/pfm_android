@@ -67,8 +67,8 @@ public class NewDiningActivity extends LoggedInActivity {
         if( minute < 10 ) {
             minuteString = "0" + minute;
         }
-        timeButton.setText( calendar.get( Calendar.HOUR_OF_DAY ) + ":"
-                + calendar.get( Calendar.MINUTE ) );
+        timeButton.setText( hourString + ":"
+                + minuteString );
     }
 
     @Override
