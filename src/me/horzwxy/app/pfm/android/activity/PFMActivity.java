@@ -46,16 +46,11 @@ public class PFMActivity extends Activity {
                 PrintWriter writer = new PrintWriter( connection.getOutputStream() );
                 String content = request.getPostContent();
                 writer.print(content);
-
-                // todo
-                System.out.println( "51  " + content );
                 writer.flush();
                 writer.close();
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader( connection.getInputStream() ) );
                 String line  = reader.readLine();
-                // todo
-                System.out.println( "58  " + line );
                 response = Response.parseResponse( line );
                 reader.close();
             } catch (MalformedURLException e) {

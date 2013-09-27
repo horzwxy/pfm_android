@@ -71,7 +71,6 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
         Intent intent = new Intent();
         intent.putExtra( "participants", participants );
         setResult( Activity.RESULT_OK, intent );
-        System.out.println( "on result " + participants.size() );
         finish();
     }
 
