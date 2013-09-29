@@ -73,7 +73,7 @@ public class ListContactsActivity extends LoggedInActivity {
         alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String nickname = input.getEditableText().toString();
-                info.friend = new User(null, nickname);
+                info.friend = new User(null, nickname, null);
                 AddContactRequest request = new AddContactRequest(info);
                 new AddContactsTask().execute(request);
                 pDialog.dismiss();
@@ -108,7 +108,7 @@ public class ListContactsActivity extends LoggedInActivity {
                 alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String nickname = input.getEditableText().toString();
-                        info.friend = new User(null, nickname);
+                        info.friend = new User(null, nickname, null);
                         AddContactRequest request = new AddContactRequest(info);
                         new AddContactsTask().execute(request);
                         pDialog.dismiss();

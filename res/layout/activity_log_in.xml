@@ -12,13 +12,27 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/log_in_account_hint"/>
+                android:text="@string/log_in_account_name_hint"/>
         <TextView
             android:id="@+id/log_in_account_name"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/log_in_empty_account"/>
         </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/log_in_account_type_hint"/>
+        <TextView
+                android:id="@+id/log_in_account_type"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="@string/log_in_empty_account"/>
+    </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

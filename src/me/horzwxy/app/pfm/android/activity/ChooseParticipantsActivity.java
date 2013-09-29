@@ -58,7 +58,7 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
 
     public void onStateChange( View v ) {
         CheckBox checkBox = ( CheckBox )v;
-        User user = new User( null, checkBox.getHint() + "" );
+        User user = new User( null, checkBox.getHint() + "", null );
         if( checkBox.isChecked() ) {
             participants.add(user);
         }
@@ -93,7 +93,7 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
                         .inflate( R.layout.line_choose_participants, null );
                 CheckBox checkBox = ( CheckBox ) line.findViewById( R.id.choose_participants_checkbox );
                 checkBox.setHint( user.nickname );
-                if( participants.contains( new User( null, user.nickname ) ) ) {
+                if( participants.contains( new User( null, user.nickname, null ) ) ) {
                     checkBox.setChecked( true );
                 }
 
