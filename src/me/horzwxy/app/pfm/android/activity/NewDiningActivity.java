@@ -19,6 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import me.horzwxy.app.pfm.android.R;
 import me.horzwxy.app.pfm.model.communication.AddDiningRequest;
@@ -27,6 +28,8 @@ import me.horzwxy.app.pfm.model.communication.Response;
 import me.horzwxy.app.pfm.model.data.Cost;
 import me.horzwxy.app.pfm.model.data.Dining;
 import me.horzwxy.app.pfm.model.data.Restaurant;
+import me.horzwxy.app.pfm.model.data.User;
+import me.horzwxy.app.pfm.model.data.UserCostMap;
 import me.horzwxy.app.pfm.model.data.UserList;
 
 /**
@@ -36,12 +39,14 @@ public class NewDiningActivity extends LoggedInActivity {
 
     private final static int REQUEST_FOR_PARTICIPANTS = 987;
 
-    private Dining dining;
     private EditText restaurantInput;
     private EditText costInput;
     private Button dateButton;
     private Button timeButton;
     private ProgressDialog pDialog;
+    private UserList participants;
+    private UserCostMap specialCosts;
+    private UserCostMap paids;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,9 @@ public class NewDiningActivity extends LoggedInActivity {
         costInput = ( EditText ) findViewById( R.id.new_dining_cost );
         dateButton = ( Button ) findViewById(R.id.new_dining_show_date_picker);
         timeButton = ( Button ) findViewById(R.id.new_dining_show_time_picker);
+        participants = new UserList();
+        specialCosts = new UserCostMap();
+        paids = new UserCostMap();
 
         Calendar calendar = Calendar.getInstance();
         dateButton.setText( calendar.get( Calendar.YEAR ) + "/"
@@ -76,7 +84,7 @@ public class NewDiningActivity extends LoggedInActivity {
         if( resultCode == Activity.RESULT_OK ) {
             switch ( requestCode ) {
                 case REQUEST_FOR_PARTICIPANTS:
-                    dining.participants = (UserList)data.getSerializableExtra( "participants" );
+                    participants = (UserList)data.getSerializableExtra( "participants" );
                     break;
                 default:
                     super.onActivityResult(requestCode, resultCode, data);
@@ -125,7 +133,7 @@ public class NewDiningActivity extends LoggedInActivity {
 
     public void chooseParticipants( View v ) {
         Intent intent = new Intent( this, ChooseParticipantsActivity.class );
-        intent.putExtra( "participants", dining.participants );
+        intent.putExtra( "participants", participants );
         startActivityForResult(intent, REQUEST_FOR_PARTICIPANTS);
     }
 
@@ -142,19 +150,21 @@ public class NewDiningActivity extends LoggedInActivity {
             Toast.makeText( this, getResources().getText( R.string.new_dining_failed_no_cost ), Toast.LENGTH_SHORT ).show();
             return;
         }
-        if( dining.participants.size() == 0 ) {
+        if( participants.size() == 0 ) {
             Toast.makeText( this, getResources().getText( R.string.new_dining_failed_no_participants ), Toast.LENGTH_SHORT ).show();
             return;
         }
-        dining.restaurant = new Restaurant( restaurantString );
-        dining.cost = new Cost( Float.parseFloat(costString) );
+        Restaurant restaurant = new Restaurant( restaurantString );
+        Cost cost = new Cost( Float.parseFloat(costString) );
         DateFormat format = new SimpleDateFormat( "yyyy/MM/dd/HH:mm" );
+        Date date = null;
         try {
-            dining.date = format.parse( dateString + "/" + timeString );
+            date = format.parse( dateString + "/" + timeString );
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        dining.author = currentUser;
+        User author = currentUser;
+        Dining dining = new Dining( restaurant, date, cost, participants, specialCosts, paids, author );
         final AddDiningInfoTask task = new AddDiningInfoTask();
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(true);
@@ -173,8 +183,7 @@ public class NewDiningActivity extends LoggedInActivity {
 
         @Override
         protected AddDiningResponse doInBackground(AddDiningRequest... requests) {
-            AddDiningRequest request = requests[0];
-            String resultString = doConnecting( request.getServlePattern(), request.toPostContent() );
+            String resultString = doConnecting( requests[0] );
             return Response.parseResponse( resultString, AddDiningResponse.class );
         }
 

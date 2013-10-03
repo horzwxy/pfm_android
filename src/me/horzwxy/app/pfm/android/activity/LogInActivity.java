@@ -95,8 +95,7 @@ public class LogInActivity extends UnloggedInActivity {
 
         @Override
         protected LogInResponse doInBackground(LogInRequest... requests) {
-            LogInRequest request = requests[0];
-            String responseString = doConnecting( request.getServlePattern(), request.toPostContent() );
+            String responseString = doConnecting( requests[0] );
             return Response.parseResponse( responseString, LogInResponse.class );
         }
 
@@ -148,8 +147,7 @@ public class LogInActivity extends UnloggedInActivity {
 
         @Override
         protected SetNicknameResponse doInBackground(SetNicknameRequest... requests) {
-            SetNicknameRequest request = requests[0];
-            String resultString = doConnecting( request.getServlePattern(), request.toPostContent() );
+            String resultString = doConnecting( requests[0] );
             return Response.parseResponse( resultString, SetNicknameResponse.class );
         }
 

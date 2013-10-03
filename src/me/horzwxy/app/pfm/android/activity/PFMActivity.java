@@ -32,7 +32,7 @@ public class PFMActivity extends Activity {
     }
 
     protected abstract class PFMHttpAsyncTask<S extends Request, T extends Response> extends AsyncTask<S, Void, T> {
-        protected static final String HOST_NAME = "http://192.168.0.105";
+        protected static final String HOST_NAME = "http://pfm.horzwxy.me";
 
         @Override
         protected abstract T doInBackground(S... requests);
@@ -40,10 +40,10 @@ public class PFMActivity extends Activity {
         @Override
         protected abstract void onPostExecute(T response);
 
-        protected String doConnecting(String servletPattern, String postContent) {
+        protected String doConnecting(S request) {
             String responseString = null;
             try {
-                URL postUrl = new URL(HOST_NAME + servletPattern);
+                URL postUrl = new URL(HOST_NAME + request.getServlePattern());
                 HttpURLConnection connection = (HttpURLConnection) postUrl.openConnection();
                 connection.setDoOutput(true);
                 connection.setDoInput(true);
@@ -54,7 +54,7 @@ public class PFMActivity extends Activity {
                         "application/x-www-form-urlencoded");
                 connection.connect();
                 PrintWriter writer = new PrintWriter(connection.getOutputStream());
-                writer.println(postContent);
+                writer.println(request.toPostContent());
                 writer.flush();
                 writer.close();
                 BufferedReader reader = new BufferedReader(

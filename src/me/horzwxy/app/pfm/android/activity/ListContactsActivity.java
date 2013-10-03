@@ -60,10 +60,13 @@ public class ListContactsActivity extends LoggedInActivity {
 
     public void addContact( View v ) {
         info = new ContactInfo( currentUser, null );
+        displayNicknameInput( getResources().getString( R.string.list_contacts_hint ) );
+    }
 
+    private void displayNicknameInput( String message ) {
         AlertDialog.Builder alert = new AlertDialog.Builder(ListContactsActivity.this);
         alert.setTitle(R.string.list_contacts_add);
-        alert.setMessage(R.string.list_contacts_hint);
+        alert.setMessage(message);
 
         // Set an EditText view to get user input
         final EditText input = new EditText(ListContactsActivity.this);
@@ -73,11 +76,11 @@ public class ListContactsActivity extends LoggedInActivity {
                 String nickname = input.getEditableText().toString();
                 info.friend = new User( nickname );
                 AddContactRequest request = new AddContactRequest(info);
-                new AddContactsTask().execute(request);
+                new AddContactTask().execute(request);
                 pDialog.dismiss();
                 pDialog = new ProgressDialog(ListContactsActivity.this);
                 pDialog.setCancelable(true);
-                pDialog.setMessage(getResources().getString(R.string.list_contacts_add_connecting));
+                pDialog.setMessage( getResources().getString( R.string.list_contacts_add_connecting ) );
                 pDialog.show();
             }
         });
@@ -85,12 +88,11 @@ public class ListContactsActivity extends LoggedInActivity {
         pDialog.dismiss();
     }
 
-    class AddContactsTask extends PFMHttpAsyncTask< AddContactRequest, AddContactResponse> {
+    class AddContactTask extends PFMHttpAsyncTask< AddContactRequest, AddContactResponse> {
 
         @Override
         protected AddContactResponse doInBackground(AddContactRequest... requests) {
-            AddContactRequest request = requests[0];
-            String responseString = doConnecting( request.getServlePattern(), request.toPostContent() );
+            String responseString = doConnecting( requests[0] );
             return Response.parseResponse( responseString, AddContactResponse.class );
         }
 
@@ -103,28 +105,7 @@ public class ListContactsActivity extends LoggedInActivity {
                 pDialog.dismiss();
             }
             else {
-                AlertDialog.Builder alert = new AlertDialog.Builder(ListContactsActivity.this);
-                alert.setTitle(R.string.list_contacts_add);
-                alert.setMessage(R.string.list_contacts_add_no_such_user);
-
-                // Set an EditText view to get user input
-                final EditText input = new EditText(ListContactsActivity.this);
-                alert.setView(input);
-                alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        String nickname = input.getEditableText().toString();
-                        info.friend = new User( nickname );
-                        AddContactRequest request = new AddContactRequest(info);
-                        new AddContactsTask().execute(request);
-                        pDialog.dismiss();
-                        pDialog = new ProgressDialog(ListContactsActivity.this);
-                        pDialog.setCancelable(true);
-                        pDialog.setMessage(getResources().getString(R.string.list_contacts_add_connecting));
-                        pDialog.show();
-                    }
-                });
-                alert.show();
-                pDialog.dismiss();
+                displayNicknameInput( getResources().getString( R.string.list_contacts_add_no_such_user ) );
             }
         }
     }
@@ -133,8 +114,7 @@ public class ListContactsActivity extends LoggedInActivity {
 
         @Override
         protected ListContactsResponse doInBackground(ListContactsRequest... requests) {
-            ListContactsRequest request = requests[0];
-            String responseString = doConnecting( request.getServlePattern(), request.toPostContent() );
+            String responseString = doConnecting( requests[0] );
             return Response.parseResponse( responseString, ListContactsResponse.class );
         }
 

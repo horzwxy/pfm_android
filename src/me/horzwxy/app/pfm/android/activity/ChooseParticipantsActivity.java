@@ -33,7 +33,7 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_participants );
 
-        participants = new UserList();
+        participants = ( UserList )getIntent().getSerializableExtra( "participants" );
         lineList = ( LinearLayout ) findViewById( R.id.participant_list );
     }
 
@@ -77,8 +77,7 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
 
         @Override
         protected ListContactsResponse doInBackground(ListContactsRequest... requests) {
-            ListContactsRequest request = requests[0];
-            String responseString = doConnecting( request.getServlePattern(), request.toPostContent() );
+            String responseString = doConnecting( requests[0] );
             return Response.parseResponse( responseString, ListContactsResponse.class );
         }
 
@@ -89,6 +88,9 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
                     .inflate( R.layout.line_choose_participants, null );
             CheckBox authorCheckBox = ( CheckBox ) authorLine.findViewById( R.id.choose_participants_checkbox );
             authorCheckBox.setHint( currentUser.nickname );
+            if( participants.contains( currentUser ) ) {
+                authorCheckBox.setChecked( true );
+            }
             lineList.addView( authorLine );
 
             UserList contacts = response.getUserList();
