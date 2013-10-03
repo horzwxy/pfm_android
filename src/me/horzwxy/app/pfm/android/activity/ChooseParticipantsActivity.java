@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -14,11 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.horzwxy.app.pfm.android.R;
-import me.horzwxy.app.pfm.model.Dining;
-import me.horzwxy.app.pfm.model.ListContactsRequest;
-import me.horzwxy.app.pfm.model.ListContactsResponse;
-import me.horzwxy.app.pfm.model.Response;
-import me.horzwxy.app.pfm.model.User;
+import me.horzwxy.app.pfm.model.communication.ListContactsRequest;
+import me.horzwxy.app.pfm.model.communication.ListContactsResponse;
+import me.horzwxy.app.pfm.model.communication.Response;
+import me.horzwxy.app.pfm.model.data.User;
+import me.horzwxy.app.pfm.model.data.UserList;
 
 /**
  * Created by horz on 9/27/13.
@@ -27,14 +26,14 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
 
     private ProgressDialog pDialog;
     private LinearLayout lineList;
-    private ArrayList< User > participants;
+    private UserList participants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_participants );
 
-        participants = new ArrayList<User>();
+        participants = new UserList();
         lineList = ( LinearLayout ) findViewById( R.id.participant_list );
     }
 
@@ -74,11 +73,17 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
         finish();
     }
 
-    class ListContactsTask extends PFMHttpAsyncTask {
+    class ListContactsTask extends PFMHttpAsyncTask< ListContactsRequest, ListContactsResponse > {
 
         @Override
-        protected void onPostExecute(Response response) {
-            ListContactsResponse lcResponse = ( ListContactsResponse ) response;
+        protected ListContactsResponse doInBackground(ListContactsRequest... requests) {
+            ListContactsRequest request = requests[0];
+            String responseString = doConnecting( request.getServlePattern(), request.toPostContent() );
+            return Response.parseResponse( responseString, ListContactsResponse.class );
+        }
+
+        @Override
+        protected void onPostExecute(ListContactsResponse response) {
 
             LinearLayout authorLine = ( LinearLayout ) ChooseParticipantsActivity.this.getLayoutInflater()
                     .inflate( R.layout.line_choose_participants, null );
@@ -86,14 +91,14 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
             authorCheckBox.setHint( currentUser.nickname );
             lineList.addView( authorLine );
 
-            List< User > contacts = lcResponse.getContactList();
+            UserList contacts = response.getUserList();
             for( User user : contacts )
             {
                 LinearLayout line = ( LinearLayout ) ChooseParticipantsActivity.this.getLayoutInflater()
                         .inflate( R.layout.line_choose_participants, null );
                 CheckBox checkBox = ( CheckBox ) line.findViewById( R.id.choose_participants_checkbox );
                 checkBox.setHint( user.nickname );
-                if( participants.contains( new User( null, user.nickname, null ) ) ) {
+                if( participants.contains( user ) ) {
                     checkBox.setChecked( true );
                 }
 

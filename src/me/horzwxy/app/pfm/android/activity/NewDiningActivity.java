@@ -21,12 +21,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import me.horzwxy.app.pfm.android.R;
-import me.horzwxy.app.pfm.model.AddDiningInfoRequest;
-import me.horzwxy.app.pfm.model.AddDiningInfoResponse;
-import me.horzwxy.app.pfm.model.Dining;
-import me.horzwxy.app.pfm.model.ListContactsRequest;
-import me.horzwxy.app.pfm.model.Response;
-import me.horzwxy.app.pfm.model.User;
+import me.horzwxy.app.pfm.model.communication.AddDiningRequest;
+import me.horzwxy.app.pfm.model.communication.AddDiningResponse;
+import me.horzwxy.app.pfm.model.communication.Response;
+import me.horzwxy.app.pfm.model.data.Cost;
+import me.horzwxy.app.pfm.model.data.Dining;
+import me.horzwxy.app.pfm.model.data.Restaurant;
+import me.horzwxy.app.pfm.model.data.UserList;
 
 /**
  * Created by horz on 9/8/13.
@@ -35,7 +36,7 @@ public class NewDiningActivity extends LoggedInActivity {
 
     private final static int REQUEST_FOR_PARTICIPANTS = 987;
 
-    private Dining diningInfo;
+    private Dining dining;
     private EditText restaurantInput;
     private EditText costInput;
     private Button dateButton;
@@ -47,7 +48,6 @@ public class NewDiningActivity extends LoggedInActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_dining);
 
-        diningInfo = new Dining();
         restaurantInput = ( EditText ) findViewById( R.id.new_dining_restuarant_input );
         costInput = ( EditText ) findViewById( R.id.new_dining_cost );
         dateButton = ( Button ) findViewById(R.id.new_dining_show_date_picker);
@@ -76,7 +76,7 @@ public class NewDiningActivity extends LoggedInActivity {
         if( resultCode == Activity.RESULT_OK ) {
             switch ( requestCode ) {
                 case REQUEST_FOR_PARTICIPANTS:
-                    diningInfo.participants = ( ArrayList< User > )data.getSerializableExtra( "participants" );
+                    dining.participants = (UserList)data.getSerializableExtra( "participants" );
                     break;
                 default:
                     super.onActivityResult(requestCode, resultCode, data);
@@ -125,16 +125,16 @@ public class NewDiningActivity extends LoggedInActivity {
 
     public void chooseParticipants( View v ) {
         Intent intent = new Intent( this, ChooseParticipantsActivity.class );
-        intent.putExtra( "participants", diningInfo.participants );
+        intent.putExtra( "participants", dining.participants );
         startActivityForResult(intent, REQUEST_FOR_PARTICIPANTS);
     }
 
     public void submit( View v ) {
-        String restaurant = restaurantInput.getText() + "";
+        String restaurantString = restaurantInput.getText() + "";
         String costString = costInput.getText() + "";
         String dateString = dateButton.getText().toString();
         String timeString = timeButton.getText().toString();
-        if( restaurant.equals( "" ) ) {
+        if( restaurantString.equals( "" ) ) {
             Toast.makeText( this, getResources().getText( R.string.new_dining_failed_no_restaurant ), Toast.LENGTH_SHORT ).show();
             return;
         }
@@ -142,19 +142,19 @@ public class NewDiningActivity extends LoggedInActivity {
             Toast.makeText( this, getResources().getText( R.string.new_dining_failed_no_cost ), Toast.LENGTH_SHORT ).show();
             return;
         }
-        if( diningInfo.participants.size() == 0 ) {
+        if( dining.participants.size() == 0 ) {
             Toast.makeText( this, getResources().getText( R.string.new_dining_failed_no_participants ), Toast.LENGTH_SHORT ).show();
             return;
         }
-        diningInfo.restaurant = restaurant;
-        diningInfo.cost = Integer.parseInt( costString );
+        dining.restaurant = new Restaurant( restaurantString );
+        dining.cost = new Cost( Float.parseFloat(costString) );
         DateFormat format = new SimpleDateFormat( "yyyy/MM/dd/HH:mm" );
         try {
-            diningInfo.date = format.parse( dateString + "/" + timeString );
+            dining.date = format.parse( dateString + "/" + timeString );
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        diningInfo.author = currentUser;
+        dining.author = currentUser;
         final AddDiningInfoTask task = new AddDiningInfoTask();
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(true);
@@ -166,15 +166,21 @@ public class NewDiningActivity extends LoggedInActivity {
         });
         pDialog.setMessage(getResources().getString(R.string.new_dining_submitting));
         pDialog.show();
-        task.execute( new AddDiningInfoRequest( diningInfo ) );
+        task.execute( new AddDiningRequest( dining ) );
     }
 
-    class AddDiningInfoTask extends PFMHttpAsyncTask {
+    class AddDiningInfoTask extends PFMHttpAsyncTask< AddDiningRequest, AddDiningResponse > {
 
         @Override
-        protected void onPostExecute(Response response) {
-            AddDiningInfoResponse adResponse = ( AddDiningInfoResponse ) response;
-            if( adResponse.getType() == AddDiningInfoResponse.AddDiningInfoType.SUCCESS ) {
+        protected AddDiningResponse doInBackground(AddDiningRequest... requests) {
+            AddDiningRequest request = requests[0];
+            String resultString = doConnecting( request.getServlePattern(), request.toPostContent() );
+            return Response.parseResponse( resultString, AddDiningResponse.class );
+        }
+
+        @Override
+        protected void onPostExecute(AddDiningResponse response) {
+            if( response.type == AddDiningResponse.ResultType.SUCCESS ) {
                 pDialog.dismiss();
                 NewDiningActivity.this.finish();
             }

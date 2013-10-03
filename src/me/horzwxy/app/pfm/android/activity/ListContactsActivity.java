@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -15,14 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.horzwxy.app.pfm.android.R;
-import me.horzwxy.app.pfm.model.AddContactRequest;
-import me.horzwxy.app.pfm.model.AddContactResponse;
-import me.horzwxy.app.pfm.model.ContactInfo;
-import me.horzwxy.app.pfm.model.ListContactsRequest;
-import me.horzwxy.app.pfm.model.ListContactsResponse;
-import me.horzwxy.app.pfm.model.Response;
-import me.horzwxy.app.pfm.model.SetNicknameRequest;
-import me.horzwxy.app.pfm.model.User;
+import me.horzwxy.app.pfm.model.communication.AddContactRequest;
+import me.horzwxy.app.pfm.model.communication.AddContactResponse;
+import me.horzwxy.app.pfm.model.communication.ListContactsRequest;
+import me.horzwxy.app.pfm.model.communication.ListContactsResponse;
+import me.horzwxy.app.pfm.model.communication.Response;
+import me.horzwxy.app.pfm.model.data.ContactInfo;
+import me.horzwxy.app.pfm.model.data.User;
 
 /**
  * Created by horz on 9/26/13.
@@ -73,7 +71,7 @@ public class ListContactsActivity extends LoggedInActivity {
         alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String nickname = input.getEditableText().toString();
-                info.friend = new User(null, nickname, null);
+                info.friend = new User( nickname );
                 AddContactRequest request = new AddContactRequest(info);
                 new AddContactsTask().execute(request);
                 pDialog.dismiss();
@@ -87,11 +85,18 @@ public class ListContactsActivity extends LoggedInActivity {
         pDialog.dismiss();
     }
 
-    class AddContactsTask extends PFMHttpAsyncTask {
+    class AddContactsTask extends PFMHttpAsyncTask< AddContactRequest, AddContactResponse> {
+
         @Override
-        protected void onPostExecute(Response response) {
-            AddContactResponse acResponse = ( AddContactResponse ) response;
-            if( acResponse.getType() == AddContactResponse.AddContactResponseType.SUCCESS ) {
+        protected AddContactResponse doInBackground(AddContactRequest... requests) {
+            AddContactRequest request = requests[0];
+            String responseString = doConnecting( request.getServlePattern(), request.toPostContent() );
+            return Response.parseResponse( responseString, AddContactResponse.class );
+        }
+
+        @Override
+        protected void onPostExecute(AddContactResponse response) {
+            if( response.type == AddContactResponse.ResultType.SUCCESS ) {
                 String nickname = info.friend.nickname;
                 adapter.add( nickname );
                 adapter.notifyDataSetChanged();
@@ -108,7 +113,7 @@ public class ListContactsActivity extends LoggedInActivity {
                 alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String nickname = input.getEditableText().toString();
-                        info.friend = new User(null, nickname, null);
+                        info.friend = new User( nickname );
                         AddContactRequest request = new AddContactRequest(info);
                         new AddContactsTask().execute(request);
                         pDialog.dismiss();
@@ -124,17 +129,18 @@ public class ListContactsActivity extends LoggedInActivity {
         }
     }
 
-    class ListContactsTask extends PFMHttpAsyncTask {
+    class ListContactsTask extends PFMHttpAsyncTask< ListContactsRequest, ListContactsResponse > {
 
         @Override
-        protected void onPostExecute(Response response) {
-            ListContactsResponse lcResponse = ( ListContactsResponse ) response;
-            List< User > contacts = lcResponse.getContactList();
-            List< String > nicknameArray = new ArrayList<String>();
-            for( User user : contacts )
-            {
-                nicknameArray.add( user.nickname );
-            }
+        protected ListContactsResponse doInBackground(ListContactsRequest... requests) {
+            ListContactsRequest request = requests[0];
+            String responseString = doConnecting( request.getServlePattern(), request.toPostContent() );
+            return Response.parseResponse( responseString, ListContactsResponse.class );
+        }
+
+        @Override
+        protected void onPostExecute(ListContactsResponse response) {
+            ArrayList< String > nicknameArray = response.getUserList().toNicknameList();
             adapter = new ArrayAdapter<String>( ListContactsActivity.this,
                     android.R.layout.simple_list_item_1, nicknameArray );
             listView.setAdapter( adapter );
