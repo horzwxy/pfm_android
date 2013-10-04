@@ -56,7 +56,7 @@ public class ShowDiningActivity extends LoggedInActivity {
             stateString = getResources().getString( R.string.dining_info_state_rejected );
 
         }
-        stateView.setText( stateString );
+        stateView.setText(stateString);
     }
 
     public void displayParticipants( View v ) {
@@ -67,15 +67,15 @@ public class ShowDiningActivity extends LoggedInActivity {
     }
 
     public void displayPaids( View v ) {
-
+        Intent intent = new Intent( this, DisplayCostActivity.class );
+        intent.putExtra( "costList", dining.paids );
+        startActivity( intent );
     }
 
     public void displaySpecialCosts( View v ) {
-
-    }
-
-    public void displayStates( View v ) {
-
+        Intent intent = new Intent( this, DisplayCostActivity.class );
+        intent.putExtra( "costList", dining.specialCosts );
+        startActivity( intent );
     }
 
     public void onApprove( View v ) {

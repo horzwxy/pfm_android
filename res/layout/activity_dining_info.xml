@@ -74,7 +74,6 @@
             <Button
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:enabled="false"
                     android:onClick="displayPaids"
                     android:text="@string/dining_info_paid_show"/>
         </LinearLayout>
@@ -89,7 +88,6 @@
             <Button
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:enabled="false"
                     android:onClick="displaySpecialCosts"
                     android:text="@string/dining_info_special_cost_show"/>
         </LinearLayout>

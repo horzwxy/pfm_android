@@ -1,6 +1,7 @@
 package me.horzwxy.app.pfm.android.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
@@ -11,13 +12,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -26,10 +27,10 @@ import me.horzwxy.app.pfm.model.communication.AddDiningRequest;
 import me.horzwxy.app.pfm.model.communication.AddDiningResponse;
 import me.horzwxy.app.pfm.model.communication.Response;
 import me.horzwxy.app.pfm.model.data.Cost;
+import me.horzwxy.app.pfm.model.data.CostList;
 import me.horzwxy.app.pfm.model.data.Dining;
 import me.horzwxy.app.pfm.model.data.Restaurant;
 import me.horzwxy.app.pfm.model.data.User;
-import me.horzwxy.app.pfm.model.data.UserCostMap;
 import me.horzwxy.app.pfm.model.data.UserList;
 
 /**
@@ -45,8 +46,8 @@ public class NewDiningActivity extends LoggedInActivity {
     private Button timeButton;
     private ProgressDialog pDialog;
     private UserList participants;
-    private UserCostMap specialCosts;
-    private UserCostMap paids;
+    private CostList specialCosts;
+    private CostList paids;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +59,8 @@ public class NewDiningActivity extends LoggedInActivity {
         dateButton = ( Button ) findViewById(R.id.new_dining_show_date_picker);
         timeButton = ( Button ) findViewById(R.id.new_dining_show_time_picker);
         participants = new UserList();
-        specialCosts = new UserCostMap();
-        paids = new UserCostMap();
+        specialCosts = new CostList();
+        paids = new CostList();
 
         Calendar calendar = Calendar.getInstance();
         dateButton.setText( calendar.get( Calendar.YEAR ) + "/"
@@ -137,6 +138,88 @@ public class NewDiningActivity extends LoggedInActivity {
         startActivityForResult(intent, REQUEST_FOR_PARTICIPANTS);
     }
 
+    public void addSpecialCost( View v ) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(R.string.new_dining_special_cost_add_title);
+
+        LinearLayout dialogView = ( LinearLayout ) this.getLayoutInflater()
+                .inflate( R.layout.dialog_add_user_cost, null );
+
+        final EditText nicknameInput = (EditText) dialogView.findViewById(R.id.add_user_cost_nickname);
+        final EditText costInput = (EditText) dialogView.findViewById(R.id.add_user_cost_cost);
+        alert.setView( dialogView );
+        alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                String nickname = nicknameInput.getEditableText().toString();
+                User user = new User( nickname );
+                if( !participants.contains( user ) ) {
+                    Toast.makeText( NewDiningActivity.this, getResources().getString( R.string.new_dining_not_participant ), Toast.LENGTH_SHORT ).show();
+                    return;
+                }
+                String costString = costInput.getEditableText().toString();
+                try{
+                    int cost = Integer.parseInt( costString );
+                    specialCosts.add( new Cost( cost, nickname ) );
+                } catch (NumberFormatException e) {
+                    Toast.makeText( NewDiningActivity.this, getResources().getString( R.string.new_dining_number_invalid ), Toast.LENGTH_SHORT ).show();
+                }
+            }
+        });
+        alert.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // nothing
+            }
+        });
+        alert.show();
+    }
+
+    public void displaySpecialCosts( View v ) {
+        Intent intent = new Intent( this, ManageCostAcvtivity.class );
+        intent.putExtra("costList", specialCosts);
+        startActivity( intent );
+    }
+
+    public void addPaid( View v ) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(R.string.new_dining_paid_add_title);
+
+        LinearLayout dialogView = ( LinearLayout ) this.getLayoutInflater()
+                .inflate( R.layout.dialog_add_user_cost, null );
+
+        final EditText nicknameInput = (EditText) dialogView.findViewById(R.id.add_user_cost_nickname);
+        final EditText costInput = (EditText) dialogView.findViewById(R.id.add_user_cost_cost);
+        alert.setView( dialogView );
+        alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                String nickname = nicknameInput.getEditableText().toString();
+                User user = new User( nickname );
+                if( !participants.contains( user ) ) {
+                    Toast.makeText( NewDiningActivity.this, getResources().getString( R.string.new_dining_not_participant ), Toast.LENGTH_SHORT ).show();
+                    return;
+                }
+                String costString = costInput.getEditableText().toString();
+                try{
+                    int cost = Integer.parseInt( costString );
+                    paids.add( new Cost(cost, nickname));
+                } catch (NumberFormatException e) {
+                    Toast.makeText( NewDiningActivity.this, getResources().getString( R.string.new_dining_number_invalid ), Toast.LENGTH_SHORT ).show();
+                }
+            }
+        });
+        alert.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // nothing
+            }
+        });
+        alert.show();
+    }
+
+    public void displayPaids( View v ) {
+        Intent intent = new Intent( this, ManageCostAcvtivity.class );
+        intent.putExtra( "costList", paids );
+        startActivity( intent );
+    }
+
     public void submit( View v ) {
         String restaurantString = restaurantInput.getText() + "";
         String costString = costInput.getText() + "";
@@ -154,8 +237,29 @@ public class NewDiningActivity extends LoggedInActivity {
             Toast.makeText( this, getResources().getText( R.string.new_dining_failed_no_participants ), Toast.LENGTH_SHORT ).show();
             return;
         }
+        int totalPaids = 0;
+        int totalSpecialCosts = 0;
+        for( Cost cost : specialCosts ) {
+            totalSpecialCosts += cost.cost;
+        }
+        for( Cost cost : paids ) {
+            totalPaids += cost.cost;
+        }
+        Cost cost = new Cost( Float.parseFloat(costString), null );
+
+        if( totalPaids != 0 && totalPaids == totalSpecialCosts ) {
+            Toast.makeText( this, getResources().getText( R.string.new_dining_no_need_to_pay ), Toast.LENGTH_SHORT ).show();
+            return;
+        }
+        if( totalPaids >= cost.cost ) {
+            Toast.makeText( this, getResources().getText( R.string.new_dining_too_much_paids ), Toast.LENGTH_SHORT ).show();
+            return;
+        }
+        if( totalSpecialCosts > cost.cost ) {
+            Toast.makeText( this, getResources().getText( R.string.new_dining_too_much_specialCosts ), Toast.LENGTH_SHORT ).show();
+            return;
+        }
         Restaurant restaurant = new Restaurant( restaurantString );
-        Cost cost = new Cost( Float.parseFloat(costString) );
         DateFormat format = new SimpleDateFormat( "yyyy/MM/dd/HH:mm" );
         Date date = null;
         try {
