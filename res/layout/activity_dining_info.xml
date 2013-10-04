@@ -106,9 +106,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <Button
+            android:id="@+id/dining_info_approve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dining_info_state_show"
-            android:onClick="displayStates"/>
+            android:enabled="false"
+            android:onClick="onApprove"
+            android:text="@string/dining_info_state_approve"/>
+        <Button
+                android:id="@+id/dining_info_reject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:onClick="onReject"
+                android:text="@string/dining_info_state_reject"/>
         </LinearLayout>
 </LinearLayout>

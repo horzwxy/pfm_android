@@ -2,6 +2,7 @@ package me.horzwxy.app.pfm.android.activity;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -39,7 +40,9 @@ public class ListDiningsActivity extends LoggedInActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Dining dining = dinings.get( i );
-
+                Intent intent = new Intent(ListDiningsActivity.this, ShowDiningActivity.class);
+                intent.putExtra( "dining", dining );
+                startActivity(intent);
             }
         });
         adapter = new ArrayAdapter<String>( this,
@@ -51,6 +54,7 @@ public class ListDiningsActivity extends LoggedInActivity {
     protected void onResume() {
         super.onResume();
 
+        previews.clear();
         final ListDiningsTask task = new ListDiningsTask();
         task.execute( new ListDiningsRequest( currentUser ));
         pDialog = new ProgressDialog(this);

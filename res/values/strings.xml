@@ -52,7 +52,14 @@
     <string name="dining_info_state_not_approved">待核准</string>
     <string name="dining_info_state_approved">已核准</string>
     <string name="dining_info_state_rejected">已否决</string>
-    <string name="dining_info_state_show">点击显示核准进度</string>
+    <string name="dining_info_state_approve">核准</string>
+    <string name="dining_info_state_reject">否决</string>
+
+    <string name="dining_info_approve_success">成功核准用餐记录</string>
+    <string name="dining_info_approve_failed">未能核准用餐记录</string>
+    <string name="dining_info_reject_success">成功否决用餐记录</string>
+    <string name="dining_info_reject_failed">未能否决用餐记录</string>
+    <string name="dining_info_approve_connecting">正在提交审核信息</string>
 
     <string name="menu_setting">设置</string>
     <string name="menu_to_main">返回主页面</string>

@@ -19,7 +19,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="me.horzwxy.app.pfm.android.activity.LogInActivity"
+            android:name=".activity.LogInActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,23 +28,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="me.horzwxy.app.pfm.android.activity.NewDiningActivity"
+            android:name=".activity.NewDiningActivity"
             android:label="@string/app_name"/>
         <activity
             android:name=".activity.ChooseParticipantsActivity"
             android:label="@string/app_name"/>
         <activity
-                android:name="me.horzwxy.app.pfm.android.activity.ListContactsActivity"
+                android:name=".activity.ListContactsActivity"
                 android:label="@string/app_name"/>
         <activity
-                android:name="me.horzwxy.app.pfm.android.activity.ListDiningsActivity"
+                android:name=".activity.ListDiningsActivity"
                 android:label="@string/app_name"/>
         <activity
-                android:name="me.horzwxy.app.pfm.android.activity.ListBillsActivity"
+                android:name=".activity.ListBillsActivity"
                 android:label="@string/app_name"/>
         <activity
-                android:name="me.horzwxy.app.pfm.android.activity.MainActivity"
+                android:name=".activity.MainActivity"
                 android:label="@string/app_name"/>
+        <activity
+            android:name=".activity.ShowDiningActivity"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".activity.DisplayPartcipantsActivity"
+            android:label="@string/app_name"/>
     </application>
 
 </manifest>

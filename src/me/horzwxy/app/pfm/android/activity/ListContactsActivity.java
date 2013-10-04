@@ -45,7 +45,6 @@ public class ListContactsActivity extends LoggedInActivity {
         super.onResume();
 
         final ListContactsTask task = new ListContactsTask();
-        task.execute( new ListContactsRequest( currentUser ));
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(true);
         pDialog.setOnCancelListener( new DialogInterface.OnCancelListener() {
@@ -56,6 +55,8 @@ public class ListContactsActivity extends LoggedInActivity {
         });
         pDialog.setMessage(getResources().getString(R.string.list_contacts_connecting));
         pDialog.show();
+        task.execute( new ListContactsRequest( currentUser ));
+
     }
 
     public void addContact( View v ) {
