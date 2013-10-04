@@ -29,16 +29,22 @@
         </activity>
         <activity
             android:name="me.horzwxy.app.pfm.android.activity.NewDiningActivity"
-            android:label="@string/app_name">
-
-        </activity>
+            android:label="@string/app_name"/>
         <activity
             android:name=".activity.ChooseParticipantsActivity"
             android:label="@string/app_name"/>
         <activity
                 android:name="me.horzwxy.app.pfm.android.activity.ListContactsActivity"
-                android:label="@string/app_name">
-                </activity>
+                android:label="@string/app_name"/>
+        <activity
+                android:name="me.horzwxy.app.pfm.android.activity.ListDiningsActivity"
+                android:label="@string/app_name"/>
+        <activity
+                android:name="me.horzwxy.app.pfm.android.activity.ListBillsActivity"
+                android:label="@string/app_name"/>
+        <activity
+                android:name="me.horzwxy.app.pfm.android.activity.MainActivity"
+                android:label="@string/app_name"/>
     </application>
 
 </manifest>

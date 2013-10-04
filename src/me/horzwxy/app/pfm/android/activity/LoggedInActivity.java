@@ -20,25 +20,18 @@ public class LoggedInActivity extends PFMActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if( item.getItemId() == R.id.menu_quit ) {
-            for( Activity activity : createdActivities ) {
-                if( activity != null && activity != this ) {
-                    activity.finish();
-                }
-            }
+        if( item.getItemId() == R.id.menu_to_main ) {
+            Intent intent = new Intent( this, MainActivity.class );
+            startActivity(intent);
+            createdActivities.remove( this );
             this.finish();
+            return true;
         }
-        else if( item.getItemId() == R.id.menu_list_contacts ) {
-            Intent intent = new Intent( this, ListContactsActivity.class );
-            startActivity(intent);
+        else if( item.getItemId() == R.id.menu_setting ) {
+            return true;
         }
-        else if( item.getItemId() == R.id.menu_message ) {
-
+        else {
+            return super.onOptionsItemSelected( item );
         }
-        else if( item.getItemId() == R.id.menu_add_new_dining ) {
-            Intent intent = new Intent( this, NewDiningActivity.class );
-            startActivity(intent);
-        }
-        return true;
     }
 }

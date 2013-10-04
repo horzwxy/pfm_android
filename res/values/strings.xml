@@ -11,9 +11,15 @@
     <string name="log_in_choose_account">选择账户</string>
     <string name="log_in_submit">登录</string>
 
-    <string name="new_dining_restuarant_hint">地点：</string>
-    <string name="new_dining_restuarant_hint_input">输入或选择用餐地点</string>
-    <string name="new_dining_restuarant_choose">选择用餐地点</string>
+    <string name="main_welcome">Hello，</string>
+    <string name="main_to_add_dining">创建新用餐记录</string>
+    <string name="main_to_list_contacts">查看好友列表</string>
+    <string name="main_to_list_dinings">查看我的用餐记录</string>
+    <string name="main_to_list_bills">查看我的账单</string>
+
+    <string name="new_dining_restaurant_hint">地点：</string>
+    <string name="new_dining_restaurant_hint_input">输入或选择用餐地点</string>
+    <string name="new_dining_restaurant_choose">选择用餐地点</string>
     <string name="new_dining_cost_hint">总金额：</string>
     <string name="new_dining_cost_hint_input">未输入总金额</string>
     <string name="new_dining_date_hint">时间：</string>
@@ -37,18 +43,19 @@
     <string name="dining_info_cost_hint">金额：</string>
     <string name="dining_info_date_hint">时间：</string>
     <string name="dining_info_mate_hint">参与者：</string>
+    <string name="dining_info_mate_show">点击显示参与者列表</string>
     <string name="dining_info_special_cost_hint">自付项目：</string>
+    <string name="dining_info_special_cost_show">点击显示自付项目列表</string>
     <string name="dining_info_paid_hint">已付项目：</string>
+    <string name="dining_info_paid_show">点击显示已付项目列表</string>
+    <string name="dining_info_state_hint">核准状态：</string>
     <string name="dining_info_state_not_approved">待核准</string>
     <string name="dining_info_state_approved">已核准</string>
     <string name="dining_info_state_rejected">已否决</string>
+    <string name="dining_info_state_show">点击显示核准进度</string>
 
     <string name="menu_setting">设置</string>
-    <string name="menu_list_contacts">查看好友列表</string>
-    <string name="menu_add_new_dining">新建聚餐记录</string>
-    <string name="menu_bill">查看结算结果</string>
-    <string name="menu_message">查看消息</string>
-    <string name="menu_history">查看历史记录</string>
+    <string name="menu_to_main">返回主页面</string>
     <string name="menu_quit">退出</string>
 
     <string name="logging_in">正在验证身份</string>
@@ -58,11 +65,14 @@
     <string name="set_nickname_hint">第一次登录请设置昵称</string>
     <string name="cannot_no_nickname_hint">sorry,你需要设置昵称</string>
     <string name="ok">确认</string>
-    <string name="cancle">取消</string>
+    <string name="cancel">取消</string>
     <string name="setting_nickname_hint">正在登记昵称</string>
     <string name="setting_nickname_success">设置成功</string>
     <string name="setting_nickname_failed">设置失败，请重新登录</string>
     <string name="setting_nickname_used">该昵称已存在</string>
+
+    <string name="list_dinings_connecting">正在获取用餐记录</string>
+    <string name="list_dinings_succeed">获取用餐记录成功</string>
 
     <string name="list_contacts_connecting">正在获取好友列表</string>
     <string name="list_contacts_success">获取列表成功</string>

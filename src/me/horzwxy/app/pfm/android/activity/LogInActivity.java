@@ -35,7 +35,6 @@ public class LogInActivity extends UnloggedInActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-        createdActivities.add(this);
 
         accountNameTextView = (TextView) findViewById(R.id.log_in_account_name);
         accountTypeTextView = (TextView) findViewById(R.id.log_in_account_type);
@@ -104,9 +103,8 @@ public class LogInActivity extends UnloggedInActivity {
             if (response.type == LogInResponse.ResultType.SUCCESS) {
                 pDialog.dismiss();
                 currentUser.nickname = response.nickname;
-                Intent intent = new Intent(LogInActivity.this, NewDiningActivity.class);
+                Intent intent = new Intent(LogInActivity.this, MainActivity.class);
                 startActivity(intent);
-                createdActivities.remove(LogInActivity.this);
                 LogInActivity.this.finish();
             } else if (response.type == LogInResponse.ResultType.SUCCESS_BUT_FIRST) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(LogInActivity.this);
@@ -129,7 +127,7 @@ public class LogInActivity extends UnloggedInActivity {
                         pDialog.show();
                     }
                 });
-                alert.setNegativeButton(R.string.cancle, new DialogInterface.OnClickListener() {
+                alert.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         Toast.makeText(LogInActivity.this, R.string.cannot_no_nickname_hint, Toast.LENGTH_SHORT).show();
                     }
@@ -154,9 +152,8 @@ public class LogInActivity extends UnloggedInActivity {
         @Override
         protected void onPostExecute(SetNicknameResponse response) {
             if (response.type == SetNicknameResponse.ResultType.SUCCESS) {
-                createdActivities.remove(LogInActivity.this);
                 pDialog.dismiss();
-                Intent intent = new Intent(LogInActivity.this, NewDiningActivity.class);
+                Intent intent = new Intent(LogInActivity.this, MainActivity.class);
                 startActivity(intent);
                 LogInActivity.this.finish();
                 return;
@@ -171,6 +168,7 @@ public class LogInActivity extends UnloggedInActivity {
                 alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String nickname = input.getEditableText().toString();
+                        currentUser.nickname = nickname;
                         SetNicknameRequest request = new SetNicknameRequest(currentUser);
                         new SetNicknameTask().execute(request);
                         pDialog.dismiss();
@@ -180,7 +178,7 @@ public class LogInActivity extends UnloggedInActivity {
                         pDialog.show();
                     }
                 });
-                alert.setNegativeButton(R.string.cancle, new DialogInterface.OnClickListener() {
+                alert.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         Toast.makeText(LogInActivity.this, R.string.cannot_no_nickname_hint, Toast.LENGTH_SHORT).show();
                     }

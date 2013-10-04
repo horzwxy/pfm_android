@@ -5,21 +5,43 @@
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
-    <Button
-        android:id="@+id/choose_user"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="choose user"/>
+        android:orientation="horizontal">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_welcome" />
+        <TextView
+                android:id="@+id/main_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
     <Button
-            android:id="@+id/authenticate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="toAddDining"
+        android:text="@string/main_to_add_dining"/>
+
+    <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="authenticate"/>
+            android:onClick="toListContacts"
+            android:text="@string/main_to_list_contacts"/>
+
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toListDinings"
+            android:text="@string/main_to_list_dinings"/>
+
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toListBills"
+            android:text="@string/main_to_list_bills"/>
 
 </LinearLayout>

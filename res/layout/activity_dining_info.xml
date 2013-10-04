@@ -11,16 +11,17 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/new_dining_restuarant_hint"/>
+                android:text="@string/dining_info_restaurant_hint"/>
+
         <TextView
                 android:id="@+id/dining_info_restuarant"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
         <Button
-            android:id="@+id/dining_info_add_restaurant"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/dining_info_add_restaurant"/>
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:enabled="false"
+                android:text="@string/dining_info_add_restaurant"/>
     </LinearLayout>
     <LinearLayout
             android:layout_height="wrap_content"
@@ -29,13 +30,11 @@
         <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/new_dining_cost_hint"/>
-        <EditText
-                android:id="@+id/new_dining_cost"
+                android:text="@string/dining_info_cost_hint"/>
+        <TextView
+                android:id="@+id/dining_info_cost"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:hint="@string/new_dining_cost_hint_input"
-                android:inputType="numberDecimal"/>
+                android:layout_width="match_parent"/>
     </LinearLayout>
     <LinearLayout
             android:layout_height="wrap_content"
@@ -44,22 +43,12 @@
         <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/new_dining_date_hint"/>
-        <Button
-            android:id="@+id/new_dining_show_date_picker"
+                android:text="@string/dining_info_date_hint"/>
+        <TextView
+            android:id="@+id/dining_info_date"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="showDatePicker"/>
-        <Button
-            android:id="@+id/new_dining_show_time_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="showTimePicker"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
-    <LinearLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:orientation="vertical">
         <LinearLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -67,23 +56,13 @@
             <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="@string/new_dining_mate_hint"/>
+                    android:text="@string/dining_info_mate_hint"/>
             <Button
-                    android:id="@+id/new_dining_mate_add"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="@string/new_dining_mate_choose_hint"/>
+                    android:text="@string/dining_info_mate_show"
+                    android:onClick="displayParticipants"/>
         </LinearLayout>
-        <LinearLayout
-                android:id="@+id/new_dining_mate_list"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:orientation="vertical"/>
-    </LinearLayout>
-    <LinearLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:orientation="vertical">
         <LinearLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -91,23 +70,45 @@
             <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="@string/new_dining_paid_hint"/>
+                    android:text="@string/dining_info_paid_hint"/>
             <Button
-                    android:id="@+id/new_dining_paid_add"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="@string/new_dining_paid_modify_hint"/>
+                    android:enabled="false"
+                    android:onClick="displayPaids"
+                    android:text="@string/dining_info_paid_show"/>
         </LinearLayout>
         <LinearLayout
-                android:id="@+id/new_dining_paid_list"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:orientation="vertical"/>
-    </LinearLayout>
-    <Button
-            android:id="@+id/new_dining_submit"
+                android:orientation="horizontal">
+            <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/dining_info_special_cost_hint"/>
+            <Button
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:enabled="false"
+                    android:onClick="displaySpecialCosts"
+                    android:text="@string/dining_info_special_cost_show"/>
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="@string/new_dining_submit"/>
-
+            android:text="@string/dining_info_state_hint"/>
+        <TextView
+            android:id="@+id/dining_info_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dining_info_state_show"
+            android:onClick="displayStates"/>
+        </LinearLayout>
 </LinearLayout>

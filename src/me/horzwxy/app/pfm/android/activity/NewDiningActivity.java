@@ -53,7 +53,7 @@ public class NewDiningActivity extends LoggedInActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_dining);
 
-        restaurantInput = ( EditText ) findViewById( R.id.new_dining_restuarant_input );
+        restaurantInput = ( EditText ) findViewById( R.id.new_dining_restaurant_input );
         costInput = ( EditText ) findViewById( R.id.new_dining_cost );
         dateButton = ( Button ) findViewById(R.id.new_dining_show_date_picker);
         timeButton = ( Button ) findViewById(R.id.new_dining_show_time_picker);
