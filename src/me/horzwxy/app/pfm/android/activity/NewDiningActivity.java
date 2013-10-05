@@ -245,14 +245,10 @@ public class NewDiningActivity extends LoggedInActivity {
         for( Cost cost : paids ) {
             totalPaids += cost.cost;
         }
-        Cost cost = new Cost( Float.parseFloat(costString), null );
+        Cost cost = new Cost( Integer.parseInt(costString), null );
 
-        if( totalPaids != 0 && totalPaids == totalSpecialCosts ) {
-            Toast.makeText( this, getResources().getText( R.string.new_dining_no_need_to_pay ), Toast.LENGTH_SHORT ).show();
-            return;
-        }
-        if( totalPaids >= cost.cost ) {
-            Toast.makeText( this, getResources().getText( R.string.new_dining_too_much_paids ), Toast.LENGTH_SHORT ).show();
+        if( totalPaids != cost.cost ) {
+            Toast.makeText( this, getResources().getText( R.string.new_dining_invalid_paids ), Toast.LENGTH_SHORT ).show();
             return;
         }
         if( totalSpecialCosts > cost.cost ) {

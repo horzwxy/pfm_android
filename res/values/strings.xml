@@ -41,8 +41,7 @@
     <string name="new_dining_failed_submit">提交失败</string>
     <string name="new_dining_not_participant">添加的用户不在参与者列表中</string>
     <string name="new_dining_number_invalid">输入了错误的数字格式</string>
-    <string name="new_dining_too_much_paids">已付金额超出消费金额</string>
-    <string name="new_dining_no_need_to_pay">已付金额等于消费金额</string>
+    <string name="new_dining_invalid_paids">已付金额不等于消费金额</string>
     <string name="new_dining_too_much_specialCosts">自付金额超出总金额</string>
 
     <string name="dialog_add_user_cost_nickname_hint">用户昵称</string>
@@ -91,6 +90,9 @@
     <string name="list_dinings_connecting">正在获取用餐记录</string>
     <string name="list_dinings_succeed">获取用餐记录成功</string>
 
+    <string name="list_bills_connecting">正在获取账单</string>
+    <string name="list_bills_succeed">获取账单成功</string>
+
     <string name="list_contacts_connecting">正在获取好友列表</string>
     <string name="list_contacts_success">获取列表成功</string>
     <string name="list_contacts_add">添加好友</string>
@@ -98,6 +100,26 @@
     <string name="list_contacts_add_connecting">正在注册好友信息</string>
     <string name="list_contacts_add_no_such_user">该用户不存在，请重新输入</string>
     <string name="list_contacts_add_success">添加好友成功</string>
+
+    <string name="display_bill_lender_hint">付款人：</string>
+    <string name="display_bill_borrower_hint">欠款人：</string>
+    <string name="display_bill_cost_hint">金额：</string>
+    <string name="display_bill_dining_link">显示产生账单的用餐信息</string>
+    <string name="display_bill_state_hint">核准状态：</string>
+    <string name="display_bill_state_approved">已核准</string>
+    <string name="display_bill_state_rejected">已否决</string>
+    <string name="display_bill_state_not_yet">待核准</string>
+    <string name="display_bill_state_cleared">已结清</string>
+    <string name="display_bill_approve">核准</string>
+    <string name="display_bill_reject">否决</string>
+    <string name="display_bill_clear">结清</string>
+    <string name="display_bill_approve_success">成功核准账单</string>
+    <string name="display_bill_approve_failed">核准账单失败</string>
+    <string name="display_bill_reject_success">成功否决账单</string>
+    <string name="display_bill_reject_failed">否决账单失败</string>
+    <string name="display_bill_clear_success">已申请结清账单</string>
+    <string name="display_bill_clear_failed">未能申请结清账单</string>
+    <string name="display_bill_approving">正在提交申请</string>
 
     <string name="choose_participants_save">保存</string>
 

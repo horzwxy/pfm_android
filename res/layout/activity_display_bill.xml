@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                android:text="@string/display_bill_lender_hint"/>
+        <TextView
+            android:id="@+id/display_bill_lender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/display_bill_borrower_hint"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/display_bill_borrower"/>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/display_bill_cost_hint"/>
+
+        <TextView
+            android:id="@+id/display_bill_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:onClick="displayDining"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/display_bill_dining_link"/>
+        android:enabled="false"
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/display_bill_state_hint"/>
+        <TextView
+            android:id="@+id/display_bill_state"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/display_bill_approve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onApprove"
+            android:enabled="false"
+            android:text="@string/display_bill_approve"/>
+        <Button
+            android:id="@+id/display_bill_reject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onReject"
+            android:enabled="false"
+            android:text="@string/display_bill_reject"/>
+        <Button
+            android:id="@+id/display_bill_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:onClick="onClear"
+            android:text="@string/display_bill_clear"/>
+
+        </LinearLayout>
+
+</LinearLayout>

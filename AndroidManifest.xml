@@ -40,9 +40,6 @@
                 android:name=".activity.ListDiningsActivity"
                 android:label="@string/app_name"/>
         <activity
-                android:name=".activity.ListBillsActivity"
-                android:label="@string/app_name"/>
-        <activity
                 android:name=".activity.MainActivity"
                 android:label="@string/app_name"/>
         <activity
@@ -56,6 +53,12 @@
             android:label="@string/app_name"/>
         <activity
             android:name=".activity.DisplayCostActivity"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".activity.ListBillsActivity"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".activity.ShowBillActivity"
             android:label="@string/app_name"/>
     </application>
 
