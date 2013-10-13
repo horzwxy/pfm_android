@@ -100,13 +100,13 @@ public class LogInActivity extends UnloggedInActivity {
 
         @Override
         protected void onPostExecute(LogInResponse response) {
-            if (response.type == LogInResponse.ResultType.SUCCESS) {
+            if (response.type == LogInResponse.ResultType.SUCCEED) {
                 pDialog.dismiss();
                 currentUser.nickname = response.nickname;
                 Intent intent = new Intent(LogInActivity.this, MainActivity.class);
                 startActivity(intent);
                 LogInActivity.this.finish();
-            } else if (response.type == LogInResponse.ResultType.SUCCESS_BUT_FIRST) {
+            } else if (response.type == LogInResponse.ResultType.NEED_REGISTER) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(LogInActivity.this);
                 alert.setTitle(R.string.set_nickname);
                 alert.setMessage(R.string.set_nickname_hint);

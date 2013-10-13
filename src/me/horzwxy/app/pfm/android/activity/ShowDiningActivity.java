@@ -112,7 +112,7 @@ public class ShowDiningActivity extends LoggedInActivity {
         protected void onPostExecute(ApproveDiningResponse response) {
             pDialog.dismiss();
             if( request.newState == Dining.DiningState.APPROVED ) {
-                if( response.type == ApproveDiningResponse.ResultType.SUCCESS ) {
+                if( response.type == ApproveDiningResponse.ResultType.SUCCEED ) {
                     Toast.makeText( ShowDiningActivity.this, getResources().getString( R.string.dining_info_approve_success ), Toast.LENGTH_SHORT ).show();
                 }
                 else {
@@ -120,7 +120,7 @@ public class ShowDiningActivity extends LoggedInActivity {
                 }
             }
             else {
-                if( response.type == ApproveDiningResponse.ResultType.SUCCESS ) {
+                if( response.type == ApproveDiningResponse.ResultType.SUCCEED ) {
                     Toast.makeText( ShowDiningActivity.this, getResources().getString( R.string.dining_info_reject_success ), Toast.LENGTH_SHORT ).show();
                 }
                 else {

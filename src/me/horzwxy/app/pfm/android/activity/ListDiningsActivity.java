@@ -48,13 +48,11 @@ public class ListDiningsActivity extends LoggedInActivity {
         adapter = new ArrayAdapter<String>( this,
                 android.R.layout.simple_list_item_1, previews );
         listView.setAdapter( adapter );
+
+        fetchDinings();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        previews.clear();
+    private void fetchDinings() {
         final ListDiningsTask task = new ListDiningsTask();
         task.execute( new ListDiningsRequest( currentUser ));
         pDialog = new ProgressDialog(this);

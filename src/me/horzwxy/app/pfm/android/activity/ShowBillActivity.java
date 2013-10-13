@@ -105,7 +105,7 @@ public class ShowBillActivity extends LoggedInActivity {
         @Override
         protected ApproveBillResponse doInBackground(ApproveBillRequest... requests) {
             ApproveBillRequest request = requests[0];
-            state = request.ba.state;
+            state = request.state;
             String responseString = doConnecting(request);
             return Response.parseResponse(responseString, ApproveBillResponse.class);
         }
@@ -113,13 +113,13 @@ public class ShowBillActivity extends LoggedInActivity {
         @Override
         protected void onPostExecute(ApproveBillResponse response) {
             if (state == Bill.BillState.APPROVED) {
-                if (response.type == ApproveBillResponse.ResultType.SUCCESS) {
+                if (response.type == ApproveBillResponse.ResultType.SUCCEED) {
                     Toast.makeText(ShowBillActivity.this, getResources().getString(R.string.display_bill_approve_success), Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(ShowBillActivity.this, getResources().getString(R.string.display_bill_approve_failed), Toast.LENGTH_SHORT).show();
                 }
             } else if (state == Bill.BillState.REJECTED) {
-                if (response.type == ApproveBillResponse.ResultType.SUCCESS) {
+                if (response.type == ApproveBillResponse.ResultType.SUCCEED) {
                     Toast.makeText(ShowBillActivity.this, getResources().getString(R.string.display_bill_reject_success), Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(ShowBillActivity.this, getResources().getString(R.string.display_bill_reject_failed), Toast.LENGTH_SHORT).show();

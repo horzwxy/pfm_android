@@ -289,7 +289,7 @@ public class NewDiningActivity extends LoggedInActivity {
 
         @Override
         protected void onPostExecute(AddDiningResponse response) {
-            if( response.type == AddDiningResponse.ResultType.SUCCESS ) {
+            if( response.type == AddDiningResponse.ResultType.SUCCEED ) {
                 pDialog.dismiss();
                 NewDiningActivity.this.finish();
             }

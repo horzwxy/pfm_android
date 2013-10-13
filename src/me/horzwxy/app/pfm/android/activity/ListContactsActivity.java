@@ -99,7 +99,7 @@ public class ListContactsActivity extends LoggedInActivity {
 
         @Override
         protected void onPostExecute(AddContactResponse response) {
-            if( response.type == AddContactResponse.ResultType.SUCCESS ) {
+            if( response.type == AddContactResponse.ResultType.SUCCEED ) {
                 String nickname = info.friend.nickname;
                 adapter.add( nickname );
                 adapter.notifyDataSetChanged();

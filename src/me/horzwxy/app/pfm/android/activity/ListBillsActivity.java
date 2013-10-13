@@ -48,13 +48,11 @@ public class ListBillsActivity extends LoggedInActivity {
         adapter = new ArrayAdapter<String>( this,
                 android.R.layout.simple_list_item_1, previews );
         listView.setAdapter( adapter );
+
+        fetchBills();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        previews.clear();
+    private void fetchBills() {
         final ListBillsTask task = new ListBillsTask();
         task.execute( new ListBillsRequest( currentUser ));
         pDialog = new ProgressDialog(this);
