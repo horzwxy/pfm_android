@@ -256,7 +256,7 @@ public class NewDiningActivity extends LoggedInActivity {
             return;
         }
         Restaurant restaurant = new Restaurant( restaurantString );
-        DateFormat format = new SimpleDateFormat( "yyyy/MM/dd/HH:mm" );
+        DateFormat format = new SimpleDateFormat( "yyyy/MM/dd/HH : mm" );
         Date date = null;
         try {
             date = format.parse( dateString + "/" + timeString );

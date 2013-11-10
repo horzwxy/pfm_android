@@ -51,6 +51,8 @@
                 android:id="@+id/log_in_submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="onSubmit"
+                android:enabled="false"
                 android:text="@string/log_in_submit"/>
     </LinearLayout>
 

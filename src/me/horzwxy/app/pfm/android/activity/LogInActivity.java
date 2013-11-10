@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -67,18 +68,39 @@ public class LogInActivity extends UnloggedInActivity {
                 builder.create().show();
             }
         });
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pDialog = new ProgressDialog(LogInActivity.this);
-                pDialog.setCancelable(true);
-                pDialog.setMessage(getResources().getString(R.string.logging_in));
-                pDialog.show();
-                LogInRequest request = new LogInRequest(currentUser);
-                new LoggingInTask().execute(request);
-            }
-        });
-        submitButton.setEnabled(false);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        final SharedPreferences sp = getPreferences(MODE_PRIVATE);
+        final String username = sp.getString( "username", null );
+        if( username != null ) {
+            AlertDialog.Builder builder = new AlertDialog.Builder( this );
+            builder.setTitle(getResources().getString(R.string.log_in_use_default_account))
+                    .setMessage(getResources().getString(R.string.log_in_use_default_account_hint1)
+                            + username + getResources().getString(R.string.log_in_use_default_account_hint2))
+                    .setCancelable(true)
+                    .setPositiveButton(getResources().getString(R.string.log_in_use_default_account_true),
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    currentUser = new User( username,
+                                            sp.getString( "nickname", null ),
+                                            sp.getString( "accountType", null ) );
+                                    onSubmit();
+                                }
+                            })
+                    .setNegativeButton(getResources().getString(R.string.log_in_use_default_account_false),
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    // nothing
+                                }
+                            } );
+            builder.create().show();
+        }
     }
 
     private String parseAccountType(String accountTypeString) {
@@ -88,6 +110,28 @@ public class LogInActivity extends UnloggedInActivity {
         } else {
             return typeStrings[0];
         }
+    }
+
+    public void onSubmit( View v ) {
+        onSubmit();
+    }
+
+    private void onSubmit() {
+        pDialog = new ProgressDialog(LogInActivity.this);
+        pDialog.setCancelable(true);
+        pDialog.setMessage(getResources().getString(R.string.logging_in));
+        pDialog.show();
+        LogInRequest request = new LogInRequest(currentUser);
+        new LoggingInTask().execute(request);
+    }
+
+    private void onLogInSucceed( String username, String nickname, String accountType ) {
+        SharedPreferences.Editor spEditor = getPreferences( MODE_PRIVATE ).edit();
+        spEditor.putString( "username", username );
+        spEditor.putString( "nickname", nickname );
+        spEditor.putString( "accountType", accountType );
+        spEditor.commit();
+        currentUser = new U
     }
 
     class LoggingInTask extends PFMHttpAsyncTask<LogInRequest, LogInResponse> {
