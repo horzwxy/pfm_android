@@ -41,6 +41,7 @@
             android:id="@+id/log_in_choose_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onChooseAccount"
             android:text="@string/log_in_choose_account"/>
         </LinearLayout>
     <LinearLayout
