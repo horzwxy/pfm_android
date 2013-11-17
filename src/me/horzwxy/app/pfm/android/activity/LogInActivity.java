@@ -41,6 +41,7 @@ public class LogInActivity extends UnloggedInActivity {
         // get account record from SharedPreference
         final SharedPreferences sp = getPreferences(MODE_PRIVATE);
         final String accountName = sp.getString( "accountName", null );
+        System.out.println( "in login " + sp.getString( "accountName", null ) + "" );
         final String accountType = sp.getString( "accountType", null );
         if( accountName != null && accountType != null ) {
             User myAccount = getMatchedAccount( accountName, accountType );
@@ -55,9 +56,10 @@ public class LogInActivity extends UnloggedInActivity {
         // If info stored in SharedPreference matches none of the available accounts on device,
         // clear the records in SharedPreference.
         // This may happen when user logs in with one account then removes the account later.
-        sp.edit().putString( "accountName", null );
-        sp.edit().putString( "accountType", null );
-        sp.edit().putString( "nickname", null );
+        // Note that if info in SharedPreference is empty or incomplete, here just simply clear them.
+        sp.edit().remove( "accountName" );
+        sp.edit().remove( "accountType" );
+        sp.edit().remove( "nickname" );
         sp.edit().commit();
     }
 
@@ -67,11 +69,10 @@ public class LogInActivity extends UnloggedInActivity {
 
         for ( Account account : accounts ) {
             if( accountName.equals( account.name )
-                    && accountType.equals( account.type ) ) {
+                    && accountType.equals( parseAccountType( account.type ) ) ) {
                 return new User( account.name, account.type );
             }
         }
-
         return null;
     }
 
@@ -114,17 +115,8 @@ public class LogInActivity extends UnloggedInActivity {
     }
 
     private void onSubmit() {
-        pDialog = new ProgressDialog(LogInActivity.this);
         final LoggingInTask task = new LoggingInTask();
-        pDialog.setCancelable(true);
-        pDialog.setOnCancelListener( new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-                task.cancel( true );
-            }
-        });
-        pDialog.setMessage(getResources().getString(R.string.logging_in));
-        pDialog.show();
+        showProgressDialog( task, R.string.logging_in );
         task.execute(new LogInRequest(currentUser));
     }
 
@@ -146,6 +138,19 @@ public class LogInActivity extends UnloggedInActivity {
         onAccountVerified( currentUser.nickname );
     }
 
+    private < T extends PFMHttpAsyncTask< ?, ? > > void showProgressDialog( final T cancledtask, int messageStringId ) {
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(true);
+        pDialog.setOnCancelListener( new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                cancledtask.cancel( true );
+            }
+        });
+        pDialog.setMessage(getResources().getString( messageStringId ));
+        pDialog.show();
+    }
+
     private void showSetNicknameDialog( int messageStringId ) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.set_nickname);
@@ -160,25 +165,16 @@ public class LogInActivity extends UnloggedInActivity {
                         currentUser.nickname = input.getEditableText().toString();
                         final SetNicknameTask task = new SetNicknameTask();
                         pDialog.dismiss();
-                        pDialog = new ProgressDialog(LogInActivity.this);
-                        pDialog.setCancelable(true);
-                        pDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                            @Override
-                            public void onCancel(DialogInterface dialogInterface) {
-                                onCancleSetNickname();
-                            }
-                        });
-                        pDialog.setMessage(getResources().getString(R.string.setting_nickname_hint));
-                        pDialog.show();
+                        showProgressDialog( task, R.string.setting_nickname_hint );
                         task.execute(new SetNicknameRequest(currentUser));
                     }
                 })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        onCancleSetNickname();
-                    }
-                });
+        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int whichButton) {
+                onCancleSetNickname();
+            }
+        });
         builder.create().show();
     }
 

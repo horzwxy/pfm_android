@@ -77,6 +77,7 @@
 
     <string name="menu_setting">设置</string>
     <string name="menu_to_main">返回主页面</string>
+    <string name="menu_log_out">注销账户</string>
     <string name="menu_quit">退出</string>
 
     <string name="logging_in">正在验证身份</string>
