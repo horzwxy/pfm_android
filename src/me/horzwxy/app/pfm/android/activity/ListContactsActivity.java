@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.horzwxy.app.pfm.android.R;
+import me.horzwxy.app.pfm.android.dao.ContactDAO;
 import me.horzwxy.app.pfm.model.communication.AddContactRequest;
 import me.horzwxy.app.pfm.model.communication.AddContactResponse;
 import me.horzwxy.app.pfm.model.communication.ListContactsRequest;
@@ -31,6 +32,7 @@ public class ListContactsActivity extends LoggedInActivity {
     private ListView listView;
     private ArrayAdapter< String > adapter;
     private ContactInfo info;
+    private ContactDAO dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,24 @@ public class ListContactsActivity extends LoggedInActivity {
     protected void onResume() {
         super.onResume();
 
+        dao = new ContactDAO( this );
+        adapter = new ArrayAdapter<String>( ListContactsActivity.this,
+                android.R.layout.simple_list_item_1, dao.getAllContacts() );
+        listView.setAdapter( adapter );
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        dao.closeDAO();
+    }
+
+    public void addContact( View v ) {
+        info = new ContactInfo( currentUser, null );
+        displayNicknameInput( getResources().getString( R.string.list_contacts_hint ) );
+    }
+
+    public void onSync( View v ) {
         final ListContactsTask task = new ListContactsTask();
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(true);
@@ -56,12 +76,6 @@ public class ListContactsActivity extends LoggedInActivity {
         pDialog.setMessage(getResources().getString(R.string.list_contacts_connecting));
         pDialog.show();
         task.execute( new ListContactsRequest( currentUser ));
-
-    }
-
-    public void addContact( View v ) {
-        info = new ContactInfo( currentUser, null );
-        displayNicknameInput( getResources().getString( R.string.list_contacts_hint ) );
     }
 
     private void displayNicknameInput( String message ) {
@@ -122,6 +136,9 @@ public class ListContactsActivity extends LoggedInActivity {
         @Override
         protected void onPostExecute(ListContactsResponse response) {
             ArrayList< String > nicknameArray = response.getUserList().toNicknameList();
+            for( String nickname : nicknameArray ) {
+                dao.addContact( nickname );
+            }
             adapter = new ArrayAdapter<String>( ListContactsActivity.this,
                     android.R.layout.simple_list_item_1, nicknameArray );
             listView.setAdapter( adapter );

@@ -11,6 +11,12 @@
         android:onClick="addContact"
         android:text="@string/list_contacts_add"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSync"
+        android:text="@string/list_contacts_sync"/>
+
     <ListView
         android:id="@+id/contacts_list"
         android:layout_width="match_parent"

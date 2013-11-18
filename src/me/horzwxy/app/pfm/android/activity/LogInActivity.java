@@ -118,7 +118,6 @@ public class LogInActivity extends UnloggedInActivity {
         final Account[] accounts = manager.getAccounts();
 
         for ( Account account : accounts ) {
-            System.out.println( account.type );
             if( accountName.equals( account.name )
                     && accountType.equals( parseAccountType( account.type ) ) ) {
                 return new User( account.name, account.type );
