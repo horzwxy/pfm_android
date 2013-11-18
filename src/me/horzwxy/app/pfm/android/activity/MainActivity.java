@@ -8,7 +8,7 @@ import android.widget.TextView;
 import me.horzwxy.app.pfm.android.R;
 
 /**
- * Created by horz on 10/3/13.
+ * Main activity of the app. It's a navigation activity.
  */
 public class MainActivity extends LoggedInActivity {
 

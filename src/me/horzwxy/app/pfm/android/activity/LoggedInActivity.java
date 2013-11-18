@@ -31,12 +31,8 @@ public class LoggedInActivity extends PFMActivity {
             case R.id.menu_log_out:
                 currentUser = null;
                 //final SharedPreferences.Editor spEditor = getPreferences(MODE_PRIVATE).edit();
-                SharedPreferences sp = getPreferences( MODE_PRIVATE );
-                System.out.println( sp );
-                System.out.println( sp.getString( "accountName", null ) + "" );
-                System.out.println(  );
+                SharedPreferences sp = getSharedPreferences( "accountInfo", MODE_PRIVATE );
                 sp.edit().remove("accountName").commit();
-                System.out.println( sp.getString( "accountName", null ) + "" );
                 sp.edit().remove("accountType").commit();
                 sp.edit().remove("nickname").commit();
                 startActivity(new Intent(this, LogInActivity.class));
