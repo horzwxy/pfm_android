@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.horzwxy.app.pfm.android.R;
+import me.horzwxy.app.pfm.android.dao.ContactDAO;
 import me.horzwxy.app.pfm.model.communication.ListContactsRequest;
 import me.horzwxy.app.pfm.model.communication.ListContactsResponse;
 import me.horzwxy.app.pfm.model.communication.Response;
@@ -20,11 +21,13 @@ import me.horzwxy.app.pfm.model.data.User;
 import me.horzwxy.app.pfm.model.data.UserList;
 
 /**
- * Created by horz on 9/27/13.
+ * User picker in creating new dining info.
+ * It gets contacts from local SQLite database and returns an array of nicknames to the caller activity.
+ * It may get an array from caller, indicating which users have already been chosen.
+ * No network connection is needed here. If user need add new contact, he should use ListContactsActivity from MainActivity.
  */
 public class ChooseParticipantsActivity extends LoggedInActivity {
 
-    private ProgressDialog pDialog;
     private LinearLayout lineList;
     private UserList participants;
 
@@ -41,23 +44,37 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
     protected void onResume() {
         super.onResume();
 
-        final ListContactsTask task = new ListContactsTask();
-        pDialog = new ProgressDialog(this);
-        pDialog.setCancelable(true);
-        pDialog.setOnCancelListener( new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-                task.cancel( true );
+        // author himself is not in contact list
+        // so we need to add him first
+        LinearLayout authorLine = ( LinearLayout ) ChooseParticipantsActivity.this.getLayoutInflater()
+                .inflate( R.layout.line_choose_participants, null );
+        CheckBox authorCheckBox = ( CheckBox ) authorLine.findViewById( R.id.choose_participants_checkbox );
+        authorCheckBox.setText( currentUser.nickname );
+        if( participants.contains( currentUser ) ) {
+            authorCheckBox.setChecked( true );
+        }
+        lineList.addView( authorLine );
+
+        // add the rest contacts
+        ContactDAO dao = new ContactDAO( this );
+        List< String > contacts = dao.getAllContacts();
+        dao.closeDAO();
+        for( String nickname : contacts )
+        {
+            LinearLayout line = ( LinearLayout ) ChooseParticipantsActivity.this.getLayoutInflater()
+                    .inflate( R.layout.line_choose_participants, null );
+            CheckBox checkBox = ( CheckBox ) line.findViewById( R.id.choose_participants_checkbox );
+            checkBox.setText( nickname );
+            if( participants.contains( new User( nickname ) ) ) {
+                checkBox.setChecked( true );
             }
-        });
-        pDialog.setMessage(getResources().getString(R.string.list_contacts_connecting));
-        pDialog.show();
-        task.execute( new ListContactsRequest( currentUser ) );
+            lineList.addView( line );
+        }
     }
 
     public void onStateChange( View v ) {
         CheckBox checkBox = ( CheckBox )v;
-        User user = new User( null, checkBox.getHint() + "", null );
+        User user = new User( null, checkBox.getText() + "", null );
         if( checkBox.isChecked() ) {
             participants.add(user);
         }
@@ -71,43 +88,5 @@ public class ChooseParticipantsActivity extends LoggedInActivity {
         intent.putExtra("participants", participants);
         setResult(Activity.RESULT_OK, intent);
         finish();
-    }
-
-    class ListContactsTask extends PFMHttpAsyncTask< ListContactsRequest, ListContactsResponse > {
-
-        @Override
-        protected ListContactsResponse doInBackground(ListContactsRequest... requests) {
-            String responseString = doConnecting( requests[0] );
-            return Response.parseResponse( responseString, ListContactsResponse.class );
-        }
-
-        @Override
-        protected void onPostExecute(ListContactsResponse response) {
-
-            LinearLayout authorLine = ( LinearLayout ) ChooseParticipantsActivity.this.getLayoutInflater()
-                    .inflate( R.layout.line_choose_participants, null );
-            CheckBox authorCheckBox = ( CheckBox ) authorLine.findViewById( R.id.choose_participants_checkbox );
-            authorCheckBox.setHint( currentUser.nickname );
-            if( participants.contains( currentUser ) ) {
-                authorCheckBox.setChecked( true );
-            }
-            lineList.addView( authorLine );
-
-            UserList contacts = response.getUserList();
-            for( User user : contacts )
-            {
-                LinearLayout line = ( LinearLayout ) ChooseParticipantsActivity.this.getLayoutInflater()
-                        .inflate( R.layout.line_choose_participants, null );
-                CheckBox checkBox = ( CheckBox ) line.findViewById( R.id.choose_participants_checkbox );
-                checkBox.setHint( user.nickname );
-                if( participants.contains( user ) ) {
-                    checkBox.setChecked( true );
-                }
-
-                lineList.addView( line );
-            }
-
-            pDialog.dismiss();
-        }
     }
 }

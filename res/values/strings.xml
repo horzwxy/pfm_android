@@ -26,7 +26,7 @@
     <string name="new_dining_restaurant_hint_input">输入或选择用餐地点</string>
     <string name="new_dining_restaurant_choose">选择用餐地点</string>
     <string name="new_dining_cost_hint">总金额：</string>
-    <string name="new_dining_cost_hint_input">未输入总金额</string>
+    <string name="new_dining_cost_hint_input">输入消费金额（元）</string>
     <string name="new_dining_date_hint">时间：</string>
     <string name="new_dining_mate_hint">参与者：</string>
     <string name="new_dining_mate_choose_hint">选择参与者</string>

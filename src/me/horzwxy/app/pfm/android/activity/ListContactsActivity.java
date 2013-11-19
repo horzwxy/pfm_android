@@ -24,7 +24,10 @@ import me.horzwxy.app.pfm.model.data.ContactInfo;
 import me.horzwxy.app.pfm.model.data.User;
 
 /**
- * Created by horz on 9/26/13.
+ * Activity to list contacts. User can get here from MainActivity.
+ * It loads contacts from local SQLite database. When user presses 'synchronize' button, \
+ * it will retrieve data from server.
+ * @version 0.98 There is no 'synchronize' mechanism in current version.
  */
 public class ListContactsActivity extends LoggedInActivity {
 
@@ -47,8 +50,9 @@ public class ListContactsActivity extends LoggedInActivity {
         super.onResume();
 
         dao = new ContactDAO( this );
-        adapter = new ArrayAdapter<String>( ListContactsActivity.this,
-                android.R.layout.simple_list_item_1, dao.getAllContacts() );
+        adapter = new ArrayAdapter<String>( this,
+                android.R.layout.simple_list_item_1,
+                dao.getAllContacts() );
         listView.setAdapter( adapter );
     }
 

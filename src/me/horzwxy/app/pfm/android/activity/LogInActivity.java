@@ -30,6 +30,8 @@ import me.horzwxy.app.pfm.model.data.User;
  * When user need to choose an account on device, the server will check if the account is registered. \
  * If not, the user need set a nickname for the account.
  * There may be problems on network connection.
+ *
+ * @version v0.99 only lacks UI
  */
 public class LogInActivity extends UnloggedInActivity {
 

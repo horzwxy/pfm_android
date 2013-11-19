@@ -8,8 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.horzwxy.app.pfm.model.data.User;
-
 /**
  * Created by horz on 11/18/13.
  */

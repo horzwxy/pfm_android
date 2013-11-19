@@ -18,16 +18,9 @@
         <EditText
                 android:id="@+id/new_dining_restaurant_input"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:hint="@string/new_dining_restaurant_hint_input"
                 android:inputType="text"/>
-
-        <Button
-                android:id="@+id/new_dining_restaurant_choose"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:enabled="false"
-                android:text="@string/new_dining_restaurant_choose"/>
     </LinearLayout>
 
     <LinearLayout
