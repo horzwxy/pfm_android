@@ -10,11 +10,14 @@ import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import me.horzwxy.app.pfm.android.R;
@@ -81,14 +84,14 @@ public class PFMActivity extends Activity {
                 connection.setRequestProperty("Content-Type",
                         "application/x-www-form-urlencoded");
                 connection.connect();
-                PrintWriter writer = new PrintWriter(connection.getOutputStream());
-                writer.println(request.toPostContent());
+                PrintWriter writer = new PrintWriter( new OutputStreamWriter( connection.getOutputStream(), "utf-8" ) );
+                writer.println(URLEncoder.encode( request.toPostContent(), "utf-8" ));
                 writer.flush();
                 writer.close();
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader(connection.getInputStream()));
 
-                responseString = reader.readLine();
+                responseString = URLDecoder.decode( reader.readLine(), "utf-8" );
                 reader.close();
             } catch (MalformedURLException e) {
                 e.printStackTrace();

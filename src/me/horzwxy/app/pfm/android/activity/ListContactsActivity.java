@@ -96,7 +96,6 @@ public class ListContactsActivity extends LoggedInActivity {
                 info.friend = new User( nickname );
                 AddContactRequest request = new AddContactRequest(info);
                 new AddContactTask().execute(request);
-                pDialog.dismiss();
                 pDialog = new ProgressDialog(ListContactsActivity.this);
                 pDialog.setCancelable(true);
                 pDialog.setMessage( getResources().getString( R.string.list_contacts_add_connecting ) );
@@ -104,7 +103,6 @@ public class ListContactsActivity extends LoggedInActivity {
             }
         });
         alert.show();
-        pDialog.dismiss();
     }
 
     class AddContactTask extends PFMHttpAsyncTask< AddContactRequest, AddContactResponse> {
